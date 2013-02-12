@@ -1,0 +1,308 @@
+/**
+ * This is the BlackBerry theme file, as much as possible this theme is contained here
+ *
+ */
+/*@font-face {
+  font-family: dincond-regular;
+  src: font-url ('DinCond-Regular.otf');
+}
+*/
+
+
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic,700,300italic|Open+Sans+Condensed:300,700&subset=latin,latin-ext');
+@import "ui_bb/variables.scss";
+@import "ui_bb/login.scss";
+@import "ui_bb/buttons.scss";
+@import "ui_bb/nav.scss";
+@import "ui_bb/projects.scss";
+@import "ui_bb/events.scss";
+@import "ui_bb/typography.scss";
+@import "ui_bb/bootstrap-lists.scss";
+@import "ui_bb/blocks.scss";
+@import "ui_bb/buttons.scss";
+@import "ui_bb/mixins.scss";
+@import "ui_bb/tables.scss";
+@import "ui_bb/commits.scss";
+@import "ui_bb/issues.scss";
+@import "ui_bb/bootcamp.scss";
+@import "ui_bb/profile.scss";
+@import "ui_bb/common-bootstrap.scss";
+@import "ui_bb/merge_requests.scss";
+
+
+.ui_bb {
+ 
+  /*
+   *  Application Header
+   *
+   */
+  header {
+    @extend .header-dark;
+    &.navbar-gitlab {
+      .navbar-inner {
+        background-color: $header_color;
+        padding-top: 13px;
+        padding-left: 80px;
+        padding-right: 40px;
+        /*border-bottom: 5px solid $border_header;*/
+        border-bottom: none;
+        box-shadow: 0px 1px 6px rgba(64, 64, 64, 0.7);
+
+        height: 55px;
+
+        .app_logo {
+          &:hover {
+            background-color: $darkwall-hover;
+
+          }
+        }
+        .separator {
+          background: #456;
+          border-left: 1px solid #678;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+/**
+ * common.scss Overrides
+ *
+ */
+
+body.ui_bb {
+  margin-bottom:0px;
+  font-size:13px;
+  line-height: 18px;
+  color: rgb(137,137,137);
+  
+  background-color: $gray;
+  width:100%;
+  height:100%;
+  font-family: $default-font-family;
+  font-weight: 400;
+
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  
+}
+
+.ui_bb {
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container .content {
+  margin-top: -20px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 25px;
+  /*background: rgba(0, 0, 0, 0.38);*/
+/*  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 40px;
+  padding-right: 40px;*/
+}
+
+.remember_me {
+  text-align: left;
+  /*margin-left: 20px;*/
+  display: block;
+  margin-bottom: -15px;
+  /*color:rgb(64, 64, 64);*/
+
+  input {
+    margin: 0;
+  }
+
+  span {
+    padding-left: 5px;
+  }
+}
+
+
+.error_message {
+  @extend .cred;
+  /*border-left: 4px solid #E99;*/
+  padding: 10px;
+  /*margin-bottom: 10px;*/
+  background: #FEE;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: -14px;
+
+
+  &.centered {
+    text-align: center;
+  }
+}
+
+.control-group {
+  .controls {
+    span {
+      &.descr {
+        position: relative;
+        top: 2px;
+        left: 5px;
+        color: #666;
+      }
+    }
+  }
+
+  .content_list{
+    background-color: white;
+  }
+}
+
+}
+
+/*
+ * blocks.scss overrides
+ */
+
+.ui_bb {
+
+.main_box {
+
+  @extend .prepend-top-20;
+  @extend .append-bottom-20;
+}
+}
+
+/**
+* Big UI Block for show page content
+*
+*/
+.ui_bb {
+.ui-box {
+
+
+  box-shadow: 0px 4px 9px rgba(64, 64, 64, 0.17);
+  margin-bottom: 25px;
+  border: none;
+
+
+  &.white {
+    background: #fff;
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  h5, .title {
+
+
+    background: rgb(54, 98, 174);
+    text-shadow: none;
+    box-shadow: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border:none;
+
+
+    > a {
+    text-shadow:none;
+    }
+
+    &.small {
+      line-height: 28px;
+      font-size: 14px;
+      line-height: 28px;
+     /* text-shadow: 0 1px 1px white;*/
+    }
+
+    form {
+      padding: 9px 0;
+      margin: 0px;
+    }
+
+    .nav-pills {
+      li {
+        padding: 3px 0;
+        &.active a {
+          background-color: $style_color;
+          color:white;
+        }
+        a {
+          @include border-radius(7px);
+          color: rgb(188, 190, 192);
+        }
+      }
+    }
+  }
+
+  .bottom {
+    @include bg-gray-gradient;
+    @include border-radius(0 0 4px 4px);
+    border-bottom: none;
+    border-top: 1px solid #bbb;
+  }
+
+  &.padded {
+    h5, .title {
+      margin: -20px;
+      margin-bottom: 0;
+      padding: 5px 20px;
+    }
+    .middle_title {
+      background: #f5f5f5;
+      margin:20px -20px;
+      padding: 0 20px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      color: #777;
+    }
+  }
+  .row_title {
+    font-weight: bold;
+    color: #444;
+    &:hover {
+      color: #444;
+      text-decoration: underline;
+    }
+  }
+
+  .ui-box-body {
+    padding: 10px;
+  }
+}
+
+/*
+ *
+ * admin.scss Overrides
+ *
+ */
+.admin-filter form {
+  label { width: 110px; color: $black;}
+  .controls { margin-left: 130px; }
+  .form-actions { padding-left: 130px; background: $gray }
+}
+/*
+ *
+ * avatar.scss Overrides
+ *
+ */
+
+/** AVATARS **/
+img.avatar { float: left; margin-right: 12px; width: 40px; border: 1px solid #ddd; padding: 1px; }
+img.avatar.s16 { width: 16px; height: 16px; margin-right: 6px; }
+img.avatar.s24 { width: 24px; height: 24px; margin-right: 8px; }
+img.avatar.s32 { width: 32px; height: 32px; margin-right: 10px; }
+img.avatar.s90 { width: 90px; height: 90px; margin-right: 15px; }
+img.lil_av { padding-left: 4px; padding-right: 3px; }
+img.small { width: 80px; }
+
+
+
+}
+
+
+

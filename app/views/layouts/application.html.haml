@@ -24,5 +24,39 @@
           = link_to "Search", search_path
         = nav_link(controller: :help) do
           = link_to "Help", help_path
-
+      - if request.fullpath==root_path && app_theme == "ui_bb"
+        %div.bootcamp
+          %h1
+            GitLab Bootcamp
+            %span If you are still new to things, we've provided a few walkthroughs to get you started.
+          %div.bootcamp-body
+            %ul.landing_page
+              %li.setup
+                %a{target:"_blank",href:"http://wikis.rim.net/display/git/Setup"}
+                  %div.image
+                  %div.desc
+                    %h2 Set Up Git
+                    %p A quick guide to help you get started with Git
+                    %span.step-number.one
+              %li.create-a-repo
+                %a{target:"_blank",href:"http://wikis.rim.net/display/git/Create+A+Repo"}
+                  %div.image
+                  %div.desc
+                    %h2 Create A Repository
+                    %p Create the place where your commits will be stored
+                    %span.step-number.two
+              %li.fork-a-repo
+                %a{target:"_blank",href:"http://wikis.rim.net/display/git/Fork+A+Repo"}
+                  %div.image
+                  %div.desc
+                    %h2 Fork a Repository
+                    %p Copy a repo to create a new, unique project from its contents.
+                    %span.step-number.three
+              %li.be-social
+                %a{target:"_blank",href:"http://wikis.rim.net/display/git/Be+Social"}
+                  %div.image
+                  %div.desc
+                    %h2 Be social
+                    %p Follow a friend. Watch a project.
+                    %span.step-number.four
       .content= yield

@@ -6,10 +6,11 @@
         %i.icon-ok
         Saved
     .themes_opts
+
       = label_tag do
         .prev.default
         = f.radio_button :theme_id, 1
-        Default
+        Basic
 
       = label_tag do
         .prev.classic
@@ -30,6 +31,12 @@
         .prev.violet
         = f.radio_button :theme_id, 5
         Violet
+
+      = label_tag do
+        .prev.bb
+        = f.radio_button :theme_id, 6
+        BlackBerry (Default)
+
     %br
     .clearfix
 

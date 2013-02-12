@@ -1,0 +1,45 @@
+
+/* C O L O R   P A L E T T E */
+    $blue_darker: rgb(24, 50, 83); /*#183253*/
+    $blue_dark: rgb(2, 81, 140); /*#02518C*/
+    $blue_light: rgb(54, 98, 174); /*#00A0D9*/
+    $seafoamgreen: rgb(101, 190, 178); /*#65BEB2*/
+    $orange_light: rgb(244, 164, 147); /*#F4A493*/
+    $orange_dark: rgb(238, 119, 22); /*#EE7716*/
+    $black:  rgb(77, 77, 77); /*#4D4D4D*/
+    $gray: rgb(243, 246, 248);
+
+    $border_header: rgb(222, 222, 222);
+    $link_color: rgb(20, 71, 173);
+    $link_color_hover: rgb(37, 134, 160);
+
+
+  /* F O N T */
+    $default-font-family: 'Source Sans Pro', Helvetica, Arial, Sans-serif;
+    $condensed:'Open Sans Condensed', Sans-serif;
+    $monospace: 'Menlo', 'Liberation Mono', 'Consolas', 'Courier New', 'andale mono', 'lucida console', monospace;
+
+    $default-font-color: rgb(64, 64, 64);
+
+
+  /* B A C K G R O U N D  A N D   O V E R L A Y S */
+
+    $black_overlay: rgba(0, 0, 0, 0.44);
+    $white_overlay: rgba(255, 255, 255, 0.5);
+
+    $background_color: rgb(242, 242, 242);
+
+    $darkwall_hover:#333333;
+
+    /*$blocks-shadow: */
+
+  /* H E A D E R */
+    $header_color: $black;
+    $navigation_color: $blue_light;
+
+  /* I M A G E */
+    $gitlab_image:url("themes/ui_bb/login-logo.png");
+    $login_bg: url("themes/ui_bb/login_bg.png");
+
+  $guide: 1px dashed red;
+

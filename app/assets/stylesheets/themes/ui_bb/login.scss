@@ -1,0 +1,96 @@
+/* Login Page */
+
+.ui_bb {
+ &.login-page{ 
+  padding-top: 10%;
+  background-image: $login_bg;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  width:100%;
+  height: 100%;
+
+  background-size: cover;
+  max-height: 1000px;
+
+  z-index:1;
+
+  
+}
+
+.login-box{
+  width: 274px;
+  /*position: relative;*/
+  /*@include border-radius(20px);*/
+  margin: auto auto 10px;
+  /*padding: 40px 30px 50px;*/
+  background-color: $white_overlay;
+  box-shadow: 0px 0px 4px rgba(64, 64, 64, 0.3);
+
+  /*CENTERING*/
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -137px;
+  margin-top: -236px;
+
+}
+
+.login-box .login-logo{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: auto;
+  height: 80px;
+  display: block;
+}
+
+.login-box input.text{
+  font-family: $condensed;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  border-radius: 0px 0px 0px 0px;
+  padding: 14px 0px;
+  background-color: white;
+  box-shadow: 1px 1px 2px 0.3px rgba(64, 64, 64, 0.3) inset;
+
+
+  &:hover{
+    /*box-shadow: 0px 0px 8px 2px rgba(47, 160, 187, 0.5);*/
+    box-shadow: 0px 0px 2px 2px rgba(47, 160, 187, 0.4) inset;
+  }
+
+  &.active{
+    /*box-shadow: 0px 0px 8px 2px rgba(47, 160, 187, 0.5);*/
+  }
+
+
+}
+
+.login-box input.text.top{
+  /*border: none;*/
+  border-radius: 0px 0px 0px 0px;
+  /*background-color: white*/
+}
+
+.login-box input.text.bottom{
+  /*border:none;*/
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-radius: 0px 0px 0px 0px;
+
+}
+
+.login-box input.text.middle{
+/*  border-top: 0;*/
+  margin-bottom:0px;
+}
+
+.login-box a.forgot{float: right; padding-top: 6px}
+}

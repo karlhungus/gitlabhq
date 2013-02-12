@@ -6,10 +6,11 @@ module Gitlab
         2 => "ui_mars",
         3 => "ui_modern",
         4 => "ui_gray",
-        5 => "ui_color"
+        5 => "ui_color",
+	6 => "ui_bb"
       }
 
-      id ||= 1
+      id ||= 6 
 
       return themes[id]
     end
