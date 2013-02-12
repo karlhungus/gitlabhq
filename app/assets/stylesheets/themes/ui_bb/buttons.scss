@@ -27,7 +27,6 @@
     background-color: rgb(54,98,174);
     color: #fff;
     padding: 10px 70px;
-    margin-bottom: 10px;
 
     &:hover {
       background: $primary_color;
@@ -103,6 +102,7 @@
     margin: auto;
     font-family: $default-font-family;
     font-weight: 700;
+    margin-bottom: 10px;
 
     &:hover{
       background: none repeat scroll 0% 0% rgb(47, 160, 187);

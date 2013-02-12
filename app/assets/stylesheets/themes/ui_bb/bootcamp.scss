@@ -22,6 +22,7 @@
       display: block;
       height: 133px;
       position: relative;
+      background-size: 140px;
     }
 
     h1 {
@@ -36,18 +37,6 @@
     }
 
     .bootcamp-body {
-/*      background-color: #E9F1F4;
-      border-color: #E9F1F4 #D8DEE2 #D8DEE2;
-      border-radius: 0 0 5px 5px;
-      border-style: solid;
-      border-width: 1px 1px 2px;
-      overflow: hidden;
-
-      height: 420px;
-      width: 1070px;
-      margin-right: auto;
-      margin-left: auto;*/
-
       overflow: hidden;
       height: 400px;
       width: 1070px;
@@ -57,20 +46,6 @@
     }
 
     ul li {
-      /*background: linear-gradient(#FFFFF5, #F5F3B4) repeat scroll 0 0 transparent;
-      border: 1px solid #DFDDB5;
-      border-radius: 5px 5px 5px 5px;
-      box-shadow: 0 1px 0 #FFFFFF;
-      color: #666666;
-      display: block;
-      float: left;
-      font-size: 13px;
-      font-weight: normal;
-      height: 215px;
-      margin: 0 10px 0 0;
-      position: relative;
-      width: 215px;*/
-
       display: block;
       float: left;
       font-size:13px;
@@ -92,15 +67,6 @@
     }
 
     .desc {
-    /*background-repeat: no-repeat;
-      border-top: 1px solid #FFFFFF;
-      display: block;
-      height: 50px;
-      overflow: hidden;
-      padding: 13px 0 15px 15px;
-      position: relative;
-      z-index: 2;*/
-
       background-repeat: no-repeat;
       display: block;
       height: 50px;
@@ -109,8 +75,6 @@
       position: relative;
       z-index: 2;
       border: none;
-      /*margin-top: 100px;*/
-
 
       h2 {
         color: #393939;
@@ -140,25 +104,25 @@
     }
 
     .setup .image {
-      background-image: url("http://github.rim.net/images/modules/dashboard/bootcamp/octocat_setup.png");
+      background-image: url("themes/ui_bb/icons-01.png");
       height: 215px;
       border-radius: 1000px;
     }
 
     .create-a-repo .image {
-      background-image: url("http://github.rim.net/images/modules/dashboard/bootcamp/octocat_create.png");
+      background-image: url("themes/ui_bb/icons-02.png");
       height: 215px;
       border-radius: 1000px;
     }
 
     .fork-a-repo .image {
-      background-image: url("http://github.rim.net/images/modules/dashboard/bootcamp/octocat_fork.png");
+      background-image: url("themes/ui_bb/icons-03.png");
       height: 215px;
       border-radius: 1000px;
     }
 
     .be-social .image {
-      background-image: url("http://github.rim.net/images/modules/dashboard/bootcamp/octocat_social.png");
+      background-image: url("themes/ui_bb/icons-04.png");
       height: 215px;
       border-radius: 1000px;
     }
