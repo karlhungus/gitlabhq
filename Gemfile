@@ -189,3 +189,8 @@ end
 group :production do
   gem "gitlab_meta", '5.0'
 end
+
+
+#Blackberry Specific
+eval_gemfile File.join(File.dirname(__FILE__), "bb/Gemfile")
+

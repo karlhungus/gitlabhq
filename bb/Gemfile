@@ -1,0 +1,12 @@
+#BlackBerry Specific Gems
+
+
+group :development do
+	gem "spork"
+# These are commented out because ruby-debug-base19x requires a copy of debugger-ruby_core_source (1.1.8) that can't be found in any sources
+#	gem "linecache19", '0.5.13',:path => "bb"#/linecache19-0.5.13.gem"
+#	gem "ruby-debug-base19x","~>0.11.30.pre11"
+#	gem "ruby-debug-ide"
+
+end
+
