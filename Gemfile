@@ -12,7 +12,8 @@ gem "rails", "3.2.13"
 
 # Supported DBs
 gem "mysql2", group: :mysql
-gem "pg", group: :postgres
+# RIM - Commenting ot pg as we don't need it and it complicated the RHEL Jenkins build
+#gem "pg", group: :postgres
 
 # Auth
 gem "devise"
