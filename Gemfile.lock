@@ -518,7 +518,7 @@ DEPENDENCIES
   foreman
   gemoji (~> 1.2.1)
   git
-  github-linguist (~> 2.3.4)
+  github-linguist!
   github-markup (~> 0.7.4)
   gitlab-grack (~> 1.0.0)
   gitlab-grit (~> 1.0.0)
