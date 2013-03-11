@@ -8,10 +8,11 @@
   background-position: center;
   background-repeat: no-repeat;
   width:100%;
-  height: 100%;
+  height: 768px;
+  overflow:hidden;
 
   background-size: cover;
-  max-height: 1000px;
+  /*max-height: 1000px;*/
 
   z-index:1;
 

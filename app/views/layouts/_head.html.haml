@@ -1,5 +1,10 @@
 %head
   %meta{charset: "utf-8"}
+  %meta{:name => "viewport", :content => "width=1280, height=720"} 
+
+  / %link{:rel=> "stylesheet", :type => "text/x-scss", :href => "/themes/ui_bbmobile.scss", :media => "handheld and (max-width:1175px)"}
+  / %link{:rel=> "stylesheet", :type => "text/x-scss", :href => "themes/ui_bb.scss", :media => "screen"}
+
   %title
     = "#{title} | " if defined?(title)
     GitLab
