@@ -40,11 +40,10 @@ POST /groups
 ```
 
 Parameters:
-
-+ `name` (required) - The name of the group
-+ `path` (required) - The path of the group
-
-## Transfer project to group
++ `name` (required)                  - The name of the group
++ `path`                             - Path defaults to lowercase version of the name
++ `owner`                            - The id of the owner to assign to defaults to current_user
+Will return created group with status `201 Created` on success, or `404 Not found` on fail.
 
 Transfer a project to the Group namespace. Available only for admin
 

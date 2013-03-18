@@ -98,6 +98,21 @@ describe Gitlab::API do
         post api("/groups", admin), { :name => 'test' }
         response.status.should == 400
       end
+
+      it "should default to downcase path if path not provided" do
+        name_att =  attributes_for(:group)[:name]
+
+        post api("/groups", admin), {:name => name_att}
+        response.status.should == 201
+      end
+
+      it "should override current user to be specified user" do
+        atts = attributes_for(:group)
+        atts[:owner]=user1.id
+        post api("/groups", admin), atts
+        response.status.should == 201
+      end
+
     end
   end
 
