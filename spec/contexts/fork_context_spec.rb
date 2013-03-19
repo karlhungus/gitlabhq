@@ -16,9 +16,22 @@ describe Projects::ForkContext do
       it { @to_project.owner.should == @to_user }
       it { @to_project.namespace.should == @to_user.namespace }
     end
+
+    context 'fork project failure' do
+      before do
+        #corrupt the project so the attempt to fork will fail
+        @from_project = create(:project, path: "empty")
+        @to_project = fork_project(@from_project, @to_user)
+      end
+
+      it {@to_project.errors.should_not be_empty}
+      it {@to_project.errors[:base].should include("Can't fork project. Please try again later") }
+
+    end
   end
 
   def fork_project(from_project, user)
     Projects::ForkContext.new(from_project, user).execute
   end
+
 end

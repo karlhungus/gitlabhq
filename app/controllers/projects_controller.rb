@@ -84,7 +84,7 @@ class ProjectsController < ProjectResourceController
 
     respond_to do |format|
       format.html do
-        if @project.saved?
+        if @project.saved? && @project.forked?
           redirect_to(@project, notice: 'Project was successfully forked.')
         else
           render action: "new"
