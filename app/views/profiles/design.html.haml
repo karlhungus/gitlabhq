@@ -8,34 +8,36 @@
     .themes_opts
 
       = label_tag do
-        .prev.default
+        .prev.bb
         = f.radio_button :theme_id, 1
+        BlackBerry (Default)
+
+      = label_tag do
+        .prev.default
+        = f.radio_button :theme_id, 2
         Basic
 
       = label_tag do
         .prev.classic
-        = f.radio_button :theme_id, 2
+        = f.radio_button :theme_id, 3
         Classic
 
       = label_tag do
         .prev.modern
-        = f.radio_button :theme_id, 3
+        = f.radio_button :theme_id, 4
         Modern
 
       = label_tag do
         .prev.gray
-        = f.radio_button :theme_id, 4
+        = f.radio_button :theme_id, 5
         SlateGray
 
       = label_tag do
         .prev.violet
-        = f.radio_button :theme_id, 5
+        = f.radio_button :theme_id, 6
         Violet
 
-      = label_tag do
-        .prev.bb
-        = f.radio_button :theme_id, 6
-        BlackBerry (Default)
+
 
     %br
     .clearfix
