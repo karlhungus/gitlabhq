@@ -1,5 +1,16 @@
 /* Login Page */
 
+@media only screen and (width:1280px){
+
+  .ui_bb{
+    &.login-page{
+      background-size: cover;
+      min-height: 2000px;
+    }
+  }
+}
+
+
 .ui_bb {
  &.login-page{ 
   padding-top: 10%;
