@@ -43,6 +43,8 @@
       margin-left: auto;
       margin-right: auto;
       padding-top: 10px;
+
+      /*padding-left:110px;*/
     }
 
     ul li {
@@ -51,18 +53,25 @@
       font-size:13px;
       font-weight: normal;
       height: 215px;
-      margin: 30px 15px 0px 25px;
+      /*margin: 30px 15px 0px 25px;*/
       position: relative;
       width: 215px;
       border-radius: 1000px;
       color: rgb(102, 102, 102);
       box-shadow: 0px 0px 10px rgba(64, 64, 64, 0.2);
       background: rgb(252, 252, 252);
+      margin: 30px 100px 0px 25px;
 
 
       li a {
         color: #666666;
         text-decoration: none;
+      }
+
+      &.landing_page {
+        padding: 0px;
+        margin: auto auto 9px 25px;
+        border: $guide;
       }
     }
 
