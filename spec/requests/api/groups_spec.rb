@@ -94,11 +94,6 @@ describe Gitlab::API do
         response.status.should == 400
       end
 
-      it "should return 400 bad request error if path not given" do
-        post api("/groups", admin), { :name => 'test' }
-        response.status.should == 400
-      end
-
       it "should default to downcase path if path not provided" do
         name_att =  attributes_for(:group)[:name]
 

@@ -36,12 +36,10 @@ gem 'gitlab_omniauth-ldap', '1.0.2', require: "omniauth-ldap"
 gem 'gitlab_yaml_db', '1.0.0', require: "yaml_db"
 
 # Syntax highlighter
-# RIM - referencing our own versions of pygments and linguist to pick up our QML syntax highlighting
-gem "pygments.rb",  :git => "http://github.rim.net/GitLab-Development/pygments.rb.git", :branch => "rim-master"
+gem "gitlab-pygments.rb", '~> 0.3.2', require: 'pygments.rb'
 
 # Language detection
-# RIM - referencing our own versions of pygments and linguist to pick up our QML syntax highlighting
-gem "github-linguist", :git => "http://github.rim.net/GitLab-Development/linguist.git", :branch => "rim-master"
+gem "github-linguist", "~> 2.3.4" , require: "linguist"
 
 # API
 gem "grape", "~> 0.3.1"
@@ -107,7 +105,7 @@ gem 'settingslogic'
 # github-linquist needs pygments 0.4.2 but Gollum 2.4.11
 # requires pygments 0.3.2. The latest master Gollum has been updated
 # to use pygments 0.4.2. Change this after next Gollum release.
-gem "gollum", "~> 2.4.0", git: "git://github.com/gollum/gollum.git", ref: "5dcd3c8c8f"
+gem "gollum", "~> 2.4.0", git: "http://github.com/gollum/gollum.git", ref: "5dcd3c8c8f"
 
 # Misc
 gem "foreman"
