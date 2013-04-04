@@ -4,7 +4,7 @@
 # Starts in the /home/git/ directory
 
 sudo /etc/init.d/gitlab stop
-cd gitlab
+cd /home/git/gitlab
 git fetch origin-rim rim-master
 git checkout -f FETCH_HEAD
 bundle install --without development test postgres
