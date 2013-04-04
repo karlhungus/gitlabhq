@@ -101,7 +101,7 @@ describe Gitlab::API do
       current_user.should == admin
     end
 
-    it "should handle multiple sudo's to oneself" do
+    it "should handle multiple sudo's to oneself, test that subsequent calls correctly return cached user" do
       set_env(admin, user.id)
       current_user.should == user
       current_user.should == user
@@ -116,6 +116,7 @@ describe Gitlab::API do
       current_user.should == user
       current_user.should == user
     end
+
     it "should handle multiple sudo's to oneself using string ids" do
       set_env(admin, user.id.to_s)
       current_user.should == user
