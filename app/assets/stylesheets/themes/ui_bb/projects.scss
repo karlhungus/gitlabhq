@@ -110,9 +110,11 @@
 .project_clone_panel {
   @include border-radius(4px);
   @include bg-gray-gradient;
-  padding: 4px 7px;
+/*  padding: 4px 7px;*/
   border: 1px solid #CCC;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .project_clone_holder {
@@ -122,6 +124,7 @@
     line-height: 18px;
     margin: 0;
     padding: 3px 10px;
+    border-radius:100px;
   }
 
   input[type="text"] {

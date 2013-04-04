@@ -14,6 +14,7 @@
 @import "ui_bb/login.scss";
 @import "ui_bb/buttons.scss";
 @import "ui_bb/nav.scss";
+@import "ui_bb/common.scss";
 @import "ui_bb/projects.scss";
 @import "ui_bb/events.scss";
 @import "ui_bb/typography.scss";
@@ -28,6 +29,7 @@
 @import "ui_bb/profile.scss";
 @import "ui_bb/common-bootstrap.scss";
 @import "ui_bb/merge_requests.scss";
+
 
 /*FOR MOBILE*/
 @media only screen and (width:1280px) {
@@ -44,6 +46,7 @@
    *  Application Header
    *
    */
+
   header {
     @extend .header-dark;
     &.navbar-gitlab {
@@ -70,7 +73,32 @@
         }
       }
     }
+  
+  .search {
+    margin-right: 45px;
+    margin-left: 10px;
+    margin-top: 2px;
 
+    .search-input {
+      @extend .span2;
+      background-image: url("icon-search.png");
+      background-repeat: no-repeat;
+      background-position: 10px;
+      padding-left: 25px;
+      font-size: 13px;
+      @include border-radius(3px);
+      border: 1px solid #c6c6c6;
+      box-shadow: none;
+      font-weight: 700;
+      background-color: rgba(255,255,255,0.8);
+      width: 500px;
+
+      &:focus {
+        @extend .span3;
+        padding-left: 30px;
+      }
+    }
+  }
   }
 }
 
@@ -411,10 +439,14 @@ img.small { width: 80px; }
     }
   }
 
-  form{
+  form {
         border: none;
         box-shadow: none;
         color: $default-font-color;
+  }
+
+  hr {
+    display: hidden;  
   }
 
 }

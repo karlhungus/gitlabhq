@@ -131,6 +131,7 @@ ul.main_menu {
 
       &:hover {
         background-color: rgb(231,231,231);
+        color: $black;
       }
     }
     > .active > a {
@@ -140,6 +141,8 @@ ul.main_menu {
       color: white;
       font-weight: bold;
     }
+
+
   }
 }
 

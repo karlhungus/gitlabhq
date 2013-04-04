@@ -132,6 +132,7 @@ input.check_all_issues {
 .span9{
   float: right;
   width: 72%;
+  /*margin-top: 20px;*/
 }
 
 .span3{
@@ -143,6 +144,7 @@ input.check_all_issues {
   background-color: $gray;
   border-right: 1px solid rgba(64, 64, 64, 0.1);
   box-shadow: none;
+  /*margin-top: 20px;*/
 
   &.affix{
     position: static;
@@ -157,8 +159,14 @@ color:rgb(249, 64, 63);
 
 .row{
   margin-left: 0px;
- /* margin-top: -18px;*/
-  padding-top: 20px;
+  margin-top: 25px;
+  /*padding-top: 20px;*/
   min-width: 1175px;
+  /*padding-top: 20px;*/
+  padding-bottom: 5px;
+}
+
+header{
+
 }
 }

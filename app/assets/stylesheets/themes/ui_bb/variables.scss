@@ -3,7 +3,7 @@
     $blue_darker: rgb(24, 50, 83); /*#183253*/
     $blue_dark: rgb(2, 81, 140); /*#02518C*/
     $blue_light: rgb(54, 98, 174); /*#00A0D9*/
-    $seafoamgreen: rgb(101, 190, 178); /*#65BEB2*/
+    $seafoamgreen: rgb(37,174,160); /*#65BEB2*/
     $orange_light: rgb(244, 164, 147); /*#F4A493*/
     $orange_dark: rgb(238, 119, 22); /*#EE7716*/
     $black:  rgb(77, 77, 77); /*#4D4D4D*/
@@ -40,7 +40,7 @@
     $navigation_color: $blue_light;
 
   /* I M A G E */
-    $gitlab_image:url("themes/ui_bb/login-logo.png");
+    $gitlab_image:url("images/themes/ui_bb/login-logo.png");
     $login_bg: url("themes/ui_bb/login_bg.png");
 
   $guide: 1px dashed red;

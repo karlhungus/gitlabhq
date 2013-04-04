@@ -52,6 +52,8 @@ input[type='search'].search-text-input {
   @include border-radius(4px);
   border: 1px solid #ccc;
   margin-bottom: 20px;
+  font-weight: 700;
+  background-color: rgba(255,255,255,0.8);
 }
 
 input[type='text'].danger {
@@ -60,7 +62,10 @@ input[type='text'].danger {
   text-shadow: 0 1px 1px #fff
 }
 
-fieldset legend { font-size: 17px; }
+fieldset legend { 
+  font-size: 17px; 
+  color: rgb(77,77,77);
+}
 
 /** PAGINATION **/
 .gitlab_pagination {
