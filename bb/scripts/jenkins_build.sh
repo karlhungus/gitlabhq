@@ -27,8 +27,7 @@ cp config/gitlab.yml.example config/gitlab.yml
 #echo "<<<END DEBUG>>>>"
 
 #setup
-bundle exec rake db:create RAILS_ENV=test
-bundle exec rake db:migrate RAILS_ENV=test
+bundle exec rake db:setup RAILS_ENV=test
 bundle exec rake db:seed_fu RAILS_ENV=test
 #sh -e /usr/bin/xvfb start                                             #No longer needed as Jenkins is starting and stopping xvfb as part of build
 
