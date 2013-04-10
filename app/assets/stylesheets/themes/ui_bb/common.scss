@@ -239,9 +239,12 @@ input.git_clone_url {
 }
 
 li.commit {
+ 
   .avatar {
-    width: 24px;
-    top:-5px;
+    width: 24px!important;
+    height: auto !important;
+    border-radius: 100px;
+    top:-5px !important;
     margin-right: 10px;
     margin-left: 10px;
   }
