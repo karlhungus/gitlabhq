@@ -21,7 +21,7 @@ describe Projects::ForkContext do
       before do
         #corrupt the project so the attempt to fork will fail
         @from_project = create(:project, path: "empty")
-        @to_project = fork_project(@from_project, @to_user)
+        @to_project = fork_project(@from_project, @to_user, false)
       end
 
       it {@to_project.errors.should_not be_empty}
@@ -30,8 +30,12 @@ describe Projects::ForkContext do
     end
   end
 
-  def fork_project(from_project, user)
-    Projects::ForkContext.new(from_project, user).execute
+  def fork_project(from_project, user, fork_success = true)
+    context = Projects::ForkContext.new(from_project, user)
+    shell = mock("gitlab_shell")
+    shell.stub(fork_repository: fork_success)
+    context.stub(gitlab_shell: shell)
+    context.execute
   end
 
 end

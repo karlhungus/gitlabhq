@@ -4,6 +4,7 @@ class ForkProject < Spinach::FeatureSteps
   include SharedProject
 
   step 'I click link "Fork"' do
+    Gitlab::Shell.any_instance.stub(:fork_repository).and_return(true)
     click_link "Fork"
   end
 
