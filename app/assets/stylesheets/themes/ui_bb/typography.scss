@@ -15,7 +15,7 @@ h3.page_title {
   /*text-transform: uppercase;*/
   font-style: italic;
   /*color: #0BA6DD;*/
-  color: $seafoamgreen;
+  color: $blue_light;
 }
 
 h6 {
@@ -40,8 +40,7 @@ pre {
 a {
   outline: none;
   /*color: $link_color;*/
-  color: rgb(37, 174, 160);
-  /*font-weight: 400;*/
+  color: $blue_light;
   font-style: normal;
   font-weight: bold;
   
@@ -51,9 +50,17 @@ a {
   }
 
   &.btn {
-    color: $style_color;
+    /*color: $style_color;*/
+    color: white;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    font-style: bold;
+
     &:hover {
-      color: $style_color;
+      /*color: $style_color;*/
+      background: $blue_darker;
+      color: white;
     }
   }
 

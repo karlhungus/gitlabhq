@@ -209,6 +209,8 @@ ul.notes {
 
 .comment-btn {
   @extend .btn-create;
+
+  margin-top: 0px;
 }
 .reply-btn {
   @extend .btn-primary;

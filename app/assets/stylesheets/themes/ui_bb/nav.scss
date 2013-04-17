@@ -1,7 +1,6 @@
 .ui_bb {
 
 ul.main_menu {
-
   background-color: $navigation_color;
   position: relative;
   overflow: hidden;
@@ -36,7 +35,7 @@ ul.main_menu {
     line-height: 14px;
     text-align: center;
     color: rgb(255, 255, 255);
-    background: $blue_darker;
+    background: $counter;
     border-radius: 15px;
   }
   .label {
@@ -165,9 +164,12 @@ ul.main_menu {
       color: #888;
       border-bottom: 1px solid #ddd;
       .badge {
-        background-color: #eee;
-        color: #888;
-        text-shadow: 0 1px 1px #fff;
+        background-color: rgba(77, 77, 77, 0.5);
+        color: white;
+        text-shadow: none;
+        /*padding: 4px 10px;*/
+        margin-left: 4px;
+        box-shadow: 1px 1px 1px rgba(77, 77, 77, 0.3) inset;
       }
       i[class^="icon-"] {
         line-height: 14px;

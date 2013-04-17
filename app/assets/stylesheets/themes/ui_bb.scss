@@ -16,7 +16,7 @@
 @import "ui_bb/nav.scss";
 @import "ui_bb/common.scss";
 @import "ui_bb/projects.scss";
-@import "ui_bb/events.scss";
+@import "ui_bb/events.scss";                                       
 @import "ui_bb/typography.scss";
 @import "ui_bb/bootstrap-lists.scss";
 @import "ui_bb/blocks.scss";
@@ -161,10 +161,11 @@ body.ui_bb {
 .error_message {
   @extend .cred;
 
-  padding: 10px;
+  /*padding: 10px;*/
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
   background: #FFDACA;
-  padding-left: 20px;
-  margin-top: 20px;
   border-left: none;
 
 
@@ -229,13 +230,17 @@ body.ui_bb {
   h5, .title {
 
 
-    background: rgb(54, 98, 174);
+    background: $seafoamgreen;
     text-shadow: none;
     box-shadow: none;
     color: white;
     text-transform: uppercase;
     padding: 8px 15px;
     border:none;
+
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 600;
 
 
     > a {
@@ -252,6 +257,10 @@ body.ui_bb {
     form {
       padding: 9px 0;
       margin: 0px;
+    }
+
+    .btn-tiny{
+      box-shadow: none;
     }
 
     .nav-pills {

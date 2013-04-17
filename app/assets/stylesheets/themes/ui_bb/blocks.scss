@@ -16,9 +16,7 @@
   
   @extend .prepend-top-20;
   @extend .append-bottom-20;
-  background-color: white;
-  
-
+/*  background-color: white;*/
 
   img { max-width: 100%; }
 
@@ -72,13 +70,7 @@
 .ui-box {
   background: #F9F9F9;
   margin-bottom: 25px;
-
-  /*border: 1px solid #eaeaea;*/
-
-  /*@include border-radius(4px);
-
-border-color: #CCC;
-@include solid-shade;*/
+  border: none;
 
   &.white {
     background: #fff;
@@ -89,10 +81,12 @@ border-color: #CCC;
   }
 
   h5, .title {
-    background-color:rgb(54, 98, 174);
-    color: white;
+    background: $blue_light;
+    text-shadow: none;
+    box-shadow: none;
     text-transform: uppercase;
     padding: 8px 15px;
+    border:none;
     color: white !important;
 
     > a {
@@ -103,7 +97,7 @@ border-color: #CCC;
       line-height: 28px;
       font-size: 14px;
       line-height: 28px;
-      text-shadow: none;
+      /*text-shadow: none;*/
     }
 
     form {
