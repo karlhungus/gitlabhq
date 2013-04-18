@@ -78,7 +78,14 @@
 
   &.btn-save {
     /*@extend .wide;*/
-    @extend .btn-primary;
+    /*@extend .btn-primary;*/
+    /*margin-top: 0px;*/
+    border-radius: 5px !important;
+    text-transform: capitalize;
+    padding: 8px 40px !important;
+    /*background: $blue_light !important;*/
+    text-shadow: none !important;
+    margin-top: 50px;
   }
 
   &.btn-close,
@@ -99,15 +106,6 @@
   &.wide {
     margin-top: -21px;
     margin-left: 10px;
-    /*background: $blue_light;*/
-    /*box-shadow: 1px 1px 1px 1px rgb(64, 64, 64);*/
-    /*font-style: italic;*/
-    
-/*    display: block;
-    margin: auto;
-    font-family: $default-font-family;
-    font-weight: 700;
-    margin-bottom: 10px;*/
 
     &:hover{
       background-color: $blue_darker;
@@ -165,9 +163,6 @@
   .login-box{
     .btn{
       &.btn-create, &.btn-primary{
-      /*@extend .wide;
-      @extend .success;*/
-
       width: 200px;
       display: block;
       text-transform: uppercase;
@@ -177,12 +172,10 @@
       box-shadow: none;
       text-shadow: none;
       background-color: rgb(54, 98, 174) !important;
-      /*color: #fff;*/
       padding: 10px 70px;
       margin-top: 0px !important;
       margin-left: auto !important;
       margin-right: auto !important;
-      /*margin-bottom: 14px;*/
       margin-bottom: 24px;
 
 
@@ -210,4 +203,19 @@
     }
   }
 
+  .input{
+    .btn{
+      &.btn-save{
+        margin-top: 0px;
+        border-radius: 5px !important;
+        text-transform: capitalize;
+        padding: 8px 40px !important;
+        /*background: $blue_light !important;*/
+        text-shadow: none !important;
+      }
+    }
+   }
 }
+
+
+
