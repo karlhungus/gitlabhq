@@ -230,11 +230,11 @@ body.ui_bb {
   h5, .title {
 
 
-    background: $seafoamgreen;
+    background: $page_title;
     text-shadow: none;
     box-shadow: none;
     color: white;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     padding: 8px 15px;
     border:none;
 
@@ -245,6 +245,7 @@ body.ui_bb {
 
     > a {
     text-shadow:none;
+    color: rgb(183, 224, 249);
     }
 
     &.small {
@@ -407,7 +408,8 @@ img.small { width: 80px; }
       top: -10px;
       line-height: 0;
       right: 10px;
-    z-index: 10; }
+    z-index: 10; 
+  }
     background: #555;
     display: none;
     z-index: 100000;
@@ -419,6 +421,7 @@ img.small { width: 80px; }
     margin-top: 0;
     float: right;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+
     a {
       color: #fff;
       padding: 12px 15px;
@@ -448,6 +451,40 @@ img.small { width: 80px; }
     }
   }
 
+
+  /*Flash alert message*/
+  .flash-container {
+    display: none;
+    .alert {
+      cursor: pointer;
+      margin: 0;
+      text-align: center;
+      border-radius: 0;
+      border: none;
+
+      span {
+        font-size: 14px;
+      }
+    }
+  } 
+
+  .alert-error{
+    margin-top: 10px;
+  }
+
+/*Wiki*/
+h3.page_title .edit-wiki-header {
+  width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 7px;
+  color: gray;
+  font-style: normal;
+  font-size: 25px
+}
+
+
+
   form {
         border: none;
         box-shadow: none;
@@ -456,6 +493,30 @@ img.small { width: 80px; }
 
   hr {
     display: none;  
+  }
+
+  img{
+    border-radius: 500px !important;
+  }
+
+  .form-actions{
+    background: rgb(243, 246, 248);
+    border-top: none;
+  }
+
+  .note-form-actions{
+    background: rgb(243, 246, 248);
+  }
+
+  .edit_project{  
+    fieldset{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .form-actions{
+      border-top: 1px solid rgb(229, 229, 229);
+    }
   }
 
 }

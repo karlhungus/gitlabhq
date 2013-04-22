@@ -1,6 +1,5 @@
 .ui_bb{
-	
-}.commit-box {
+.commit-box {
   @extend .main_box;
 
   .commit-head {
@@ -318,4 +317,5 @@
   @include border-radius(4px);
   padding: 4px;
   background-color: #EEE;
+}	
 }

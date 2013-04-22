@@ -9,18 +9,29 @@
   box-shadow: 0.3px 1px 1px rgb(135,135,135);  
   border-radius: 100px !important;
   /*background: none repeat scroll 0% 0% rgba(64, 64, 64, 0.5);*/
-  background: $button_color !important;
+  background: $button_color;
   font-size: 12px;
   font-weight: 700;
   margin-right: 5px !important;
   padding: 4px 12px;
-  /*text-transform: uppercase;*/
-  /*margin-left: 5px !important;*/
+
 
   &:hover {
     background-color: $blue_darker !important;
     color: white;
     box-shadow: none;
+  }
+
+/*  &.btn-small{
+    &.grouped{
+      &.close_issue{
+        background: $red_button;
+      }
+    }
+  }*/
+
+  &.close_issue{
+    background: red_button;
   }
 
   &.btn-primary {
@@ -73,6 +84,20 @@
     @extend .wide;
     @extend .success;
 
+    text-shadow: none !important;
+    border: none;
+    background: none;
+    color: white !important;
+   /*box-shadow:  0.2px 0.5px 0.5px rgb(64, 64, 64); */
+    box-shadow: 0.3px 1px 1px rgb(135,135,135);  
+    border-radius: 100px !important;
+   /*background: none repeat scroll 0% 0% rgba(64, 64, 64, 0.5);*/
+    background: $button_color;
+    font-size: 12px !important;
+    font-weight: 700;
+    margin-right: 5px !important;
+    padding: 4px 12px;
+
     margin-top: 0px;
   }
 
@@ -80,18 +105,22 @@
     /*@extend .wide;*/
     /*@extend .btn-primary;*/
     /*margin-top: 0px;*/
-    border-radius: 5px !important;
+    border-radius: 5px;
     text-transform: capitalize;
-    padding: 8px 40px !important;
+    padding: 6px 40px !important;
     /*background: $blue_light !important;*/
+    /*float: right;*/
+    /*display: block;*/
     text-shadow: none !important;
-    margin-top: 50px;
+    margin-top: 3px !important;
+    border-radius: 500px !important;
   }
 
   &.btn-close,
   &.btn-remove {
     @extend .btn-danger;
     border-color: #BD362F;
+    background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important;
 
     &:hover {
       color: #fff;
@@ -101,11 +130,11 @@
 
   &.btn-cancel {
     float: right;
+    background: $red_button !important;
+    margin-top: 9px;
   }
 
   &.wide {
-    margin-top: -21px;
-    margin-left: 10px;
 
     &:hover{
       background-color: $blue_darker;
@@ -115,7 +144,6 @@
       /*background: none repeat scroll 0% 0% rgb(47, 160, 187);
       box-shadow: 0px 0px 4px rgba(47, 160, 187, 0.4);*/
     }
-
   }
 
   &.small {
@@ -158,6 +186,22 @@
     margin-right: 3px;
     padding: 4px 10px 4px;
   }
+
+  &.comment-btn{
+    font-family: $default-font-family;
+    margin-top: 0px;
+    /*text-transform: capitalize;*/
+    padding: 6px 40px !important;
+    /*background: $blue_light !important;*/
+    text-shadow: none !important;
+    /*display: block;*/
+
+    &.disabled{
+      margin-top: 0px;
+      background: $blue_light !important;
+      text-shadow: none !important;
+    }
+  }
 }
 
   .login-box{
@@ -190,31 +234,58 @@
     }
   }
 
+
+      .form-inline{
+        .search-holder{
+          input .btn{
+            &.btn-primary{
+              &.wide{
+                border: 10px solid;
+              }
+            }
+          }
+        }
+      }
+
   .btn{
     &.btn-primary{
       &.wide{
         &.commits-compare-btn{
           margin: 0px;
           &.disabled{
-            background: red;
+            background: $blue_light;
           }
         }
       }
     }
   }
 
-  .input{
-    .btn{
-      &.btn-save{
-        margin-top: 0px;
-        border-radius: 5px !important;
-        text-transform: capitalize;
-        padding: 8px 40px !important;
-        /*background: $blue_light !important;*/
-        text-shadow: none !important;
+  .container{
+    .content{
+      .form-inline{
+        .input{
+          .btn{
+            &.btn-primary{
+              &.wide{
+                margin-top: -21px;
+              }
+            }
+          }
+        }
+      }
+    }      
+  }
+f
+
+  .span3{  /*UNFINISHED*/
+    .admin-filter{
+      .btn{
+        .btn-cancel{
+          border: 10px solid !important;
+        }
       }
     }
-   }
+  }
 }
 
 

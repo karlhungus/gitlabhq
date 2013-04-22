@@ -14,10 +14,11 @@
     $link_color: rgb(20, 71, 173);
     $link_color_hover: rgb(37, 134, 160);
 
-    $page_title: rgb(39, 170, 225);
+    $page_title: $blue_light;
 
-    $counter: rgba(77, 77, 77, 0.9);
+    $counter: $blue_darker/*rgba(77, 77, 77, 0.9)*/;
     $button_color: rgb(110,110,110);
+    $red_button: rgb(209, 47, 25);
 
 
   /* F O N T */
@@ -41,7 +42,8 @@
 
   /* H E A D E R */
     $header_color: $black;
-    $navigation_color: $seafoamgreen;
+    $navigation_color: $blue_light;
+    $titlebar: $blue_light;
 
   /* I M A G E */
     $gitlab_image:url("images/themes/ui_bb/login-logo.png");
