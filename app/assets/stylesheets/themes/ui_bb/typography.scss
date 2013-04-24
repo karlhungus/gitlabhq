@@ -8,17 +8,19 @@ h3, h4, h5, h6 { line-height: 36px; }
 h5 { font-size: 14px; }
 
 h3.page_title {
-  /*color: rgb(39, 170, 225);*/
   font-size: 28px;
   font-weight: normal;
   line-height: 28px;
-  /*text-transform: uppercase;*/
   font-style: italic;
-  /*color: #0BA6DD;*/
   color: $page_title;
 }
 
-h6 {
+h5.title{
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+top {
   color: #888;
   text-transform: uppercase;
 }
@@ -59,7 +61,7 @@ a {
 
     &:hover {
       /*color: $style_color;*/
-      background: $blue_darker;
+      background: $button_hover;
       color: white;
     }
   }

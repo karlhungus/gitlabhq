@@ -69,9 +69,20 @@ fieldset legend {
 
 /** PAGINATION **/
 .gitlab_pagination {
-  span a { color: $link_color; }
+  span a {
+   color: $default-font-color; 
+
+   &:hover{
+    color: $link_color;
+   }
+  }
   .prev, .next, .current, .page a {
     padding: 10px;
+    color: $default-font-color;
+
+    &.hover{
+      color: $link_color;
+    }
   }
   .current {
     border-bottom: 2px solid $style_color;

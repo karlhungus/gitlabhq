@@ -132,7 +132,30 @@ input.check_all_issues {
 .span9{
   float: right;
   width: 72%;
-  /*margin-top: 20px;*/
+
+  #issues-table-holder.ui-box{
+    .title{
+      padding: 11px 10px 6px;  /*11px 11px 6px*/
+      /*border: $guide !important;*/
+    }
+  }
+  .team-table{
+    .ui-box{
+      .well-list{
+        li{
+          padding-left: 0px;
+          padding-top: 15px;
+          padding-bottom: 9px;
+        }
+        .row{
+          min-width: 0px;
+          margin-top: 0px;
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+
 }
 
 .span3{
@@ -159,10 +182,8 @@ color:rgb(249, 64, 63);
 
 .row{
   margin-left: 0px;
-  margin-top: 25px;
-  /*padding-top: 20px;*/
+  margin-top: 50px;
   min-width: 1175px;
-  /*padding-top: 20px;*/
   padding-bottom: 5px;
 }
 

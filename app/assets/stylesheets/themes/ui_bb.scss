@@ -114,16 +114,13 @@ body.ui_bb {
   font-size:13px;
   line-height: 18px;
   color: rgb(137,137,137);
-  
   background-color: $gray;
   width:100%;
   height:100%;
-  font-family: $default-font-family;
+  font-family: $default-font-family !important;
   font-weight: 400;
-
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  
 }
 
 .ui_bb {
@@ -228,9 +225,7 @@ body.ui_bb {
   }
 
   h5, .title {
-
-
-    background: $page_title;
+    background: $titlebar;
     text-shadow: none;
     box-shadow: none;
     color: white;
@@ -239,7 +234,7 @@ body.ui_bb {
     border:none;
 
     font-size: 14px;
-    font-style: italic;
+    /*font-style: italic;*/
     font-weight: 600;
 
 
@@ -483,8 +478,6 @@ h3.page_title .edit-wiki-header {
   font-size: 25px
 }
 
-
-
   form {
         border: none;
         box-shadow: none;
@@ -497,6 +490,10 @@ h3.page_title .edit-wiki-header {
 
   img{
     border-radius: 500px !important;
+  }
+
+  input{
+    font-family: $default-font-family;
   }
 
   .form-actions{
@@ -513,12 +510,10 @@ h3.page_title .edit-wiki-header {
       padding-left: 20px;
       padding-right: 20px;
     }
-
     .form-actions{
       border-top: 1px solid rgb(229, 229, 229);
     }
   }
-
 }
 
 

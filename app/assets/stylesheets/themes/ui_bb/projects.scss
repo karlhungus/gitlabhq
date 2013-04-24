@@ -2,13 +2,9 @@
 .ui_bb {
 .projects {
 
-  @extend .row;
-  
-    margin-left: 0px;
-
-/*   padding-left: 100px;
-    padding-right: 100px;*/ 
-    padding-top: 50px;
+  @extend .row;  
+   margin-left: 0px;
+   padding-top: 0px !important;
   
   .activities {
     background-color: rgb(255, 255, 255);
@@ -110,11 +106,15 @@
 .project_clone_panel {
   @include border-radius(4px);
   @include bg-gray-gradient;
-/*  padding: 4px 7px;*/
   border: 1px solid #CCC;
   margin-bottom: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+
+  .row{
+    margin-top: 7px !important;
+    margin-left: -10px;
+  }
 }
 
 .project_clone_holder {

@@ -17,18 +17,10 @@
 
 
   &:hover {
-    background-color: $blue_darker !important;
+    background-color: $button_hover !important;
     color: white;
     box-shadow: none;
   }
-
-/*  &.btn-small{
-    &.grouped{
-      &.close_issue{
-        background: $red_button;
-      }
-    }
-  }*/
 
   &.close_issue{
     background: red_button;
@@ -84,21 +76,19 @@
     @extend .wide;
     @extend .success;
 
+    font-family: $default-font-family;
     text-shadow: none !important;
     border: none;
     background: none;
     color: white !important;
-   /*box-shadow:  0.2px 0.5px 0.5px rgb(64, 64, 64); */
     box-shadow: 0.3px 1px 1px rgb(135,135,135);  
     border-radius: 100px !important;
-   /*background: none repeat scroll 0% 0% rgba(64, 64, 64, 0.5);*/
     background: $button_color;
     font-size: 12px !important;
     font-weight: 700;
     margin-right: 5px !important;
     padding: 4px 12px;
-
-    margin-top: 0px;
+        margin-top: 0px;
   }
 
   &.btn-save {
@@ -124,7 +114,7 @@
 
     &:hover {
       color: #fff;
-      background: #EE4E49;
+      background: $red_button !important;
     }
   }
 
@@ -137,7 +127,7 @@
   &.wide {
 
     &:hover{
-      background-color: $blue_darker;
+      background-color: $button_hover;
       color: white;
       box-shadow: none;
 
@@ -166,11 +156,11 @@
 
   &.btn-tiny.info{
     font-size: 11px;
-    padding: 2px 6px;
+    padding: 4px 10px;
     background: rgba(77, 77, 77, 0.8);
 
     &:hover{
-      background: $blue_darker;
+      background: $button_hover;
       color: white;
       box-shadow: none;
     }
@@ -258,6 +248,16 @@
         }
       }
     }
+
+    &.btn-small.btn-remove{
+      @extend .btn-danger;
+      border-color: #BD362F;
+      background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important;
+      
+      &:hover{
+        background: $red_button !important;
+      }
+    }
   }
 
   .container{
@@ -275,14 +275,23 @@
       }
     }      
   }
-f
 
-  .span3{  /*UNFINISHED*/
+  .span3{
     .admin-filter{
-      .btn{
-        .btn-cancel{
-          border: 10px solid !important;
+      .btn.btn-cancel{
+        background: $button_color !important;
+
+        &:hover{
+          background: $button_hover !important;
         }
+      }
+    }
+  }
+
+  .span4.pull-right{
+    .btn-tiny.btn.btn-remove{
+      &:hover{
+        background: $red_button;
       }
     }
   }
