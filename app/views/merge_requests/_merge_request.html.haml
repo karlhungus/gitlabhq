@@ -1,4 +1,5 @@
 %li{ class: mr_css_classes(merge_request) }
+
   .pull-right
     .left
       - if merge_request.merged?
@@ -15,12 +16,12 @@
           %i.icon-time
           = merge_request.milestone.title
       %span.btn.btn-small.disabled.grouped
-        = merge_request.source_branch
+        = "#{merge_request.source_project.path_with_namespace}/#{merge_request.source_branch}"
         &rarr;
-        = merge_request.target_branch
+        = "#{merge_request.target_project.path_with_namespace}/#{merge_request.target_branch}"
   = image_tag gravatar_icon(merge_request.author_email), class: "avatar"
 
-  %p= link_to_gfm truncate(merge_request.title, length: 80), project_merge_request_path(merge_request.project, merge_request), class: "row_title"
+  %p= link_to_gfm truncate(merge_request.title, length: 80), project_merge_request_path(merge_request.source_project, merge_request), class: "row_title"
 
   %span.update-author
     %small.cdark= "##{merge_request.id}"

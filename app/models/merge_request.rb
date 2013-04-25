@@ -2,31 +2,36 @@
 #
 # Table name: merge_requests
 #
-#  id            :integer          not null, primary key
-#  target_branch :string(255)      not null
-#  source_branch :string(255)      not null
-#  project_id    :integer          not null
-#  author_id     :integer
-#  assignee_id   :integer
-#  title         :string(255)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  st_commits    :text(2147483647)
-#  st_diffs      :text(2147483647)
-#  milestone_id  :integer
-#  state         :string(255)
-#  merge_status  :string(255)
+#  id             :integer          not null, primary key
+#  target_project_id :integer          not null
+#  target_branch  :string(255)      not null
+#  source_project_id :integer          not null
+#  source_branch  :string(255)      not null
+#  author_id      :integer
+#  assignee_id    :integer
+#  title          :string(255)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  st_commits     :text(2147483647)
+#  st_diffs       :text(2147483647)
+#  milestone_id   :integer
+#  state          :string(255)
+#  merge_status   :string(255)
 #
 
 require Rails.root.join("app/models/commit")
 require Rails.root.join("lib/static_model")
 
 class MergeRequest < ActiveRecord::Base
+
   include Issuable
+
+  belongs_to :target_project,:foreign_key => :target_project_id, class_name: "Project"
+  belongs_to :source_project, :foreign_key => :source_project_id,class_name: "Project"
 
   BROKEN_DIFF = "--broken-diff"
 
-  attr_accessible :title, :assignee_id, :target_branch, :source_branch, :milestone_id,
+  attr_accessible :title, :assignee_id, :source_project_id, :source_branch, :target_project_id, :target_branch,  :milestone_id,
                   :author_id_of_changes, :state_event
 
   attr_accessor :should_remove_source_branch
@@ -76,22 +81,28 @@ class MergeRequest < ActiveRecord::Base
   serialize :st_commits
   serialize :st_diffs
 
+  validates :source_project, presence: true
   validates :source_branch, presence: true
+  validates :target_project, presence: true
   validates :target_branch, presence: true
-  validate  :validate_branches
+  validate :validate_branches
 
+  scope :of_group, ->(group) { where("source_project_id in (:group_project_ids) OR target_project_id in (:group_project_ids)",group_project_ids:group.project_ids) }
+  scope :of_user_team, ->(team) { where("(source_project_id in (:team_project_ids) OR target_project_id in (:team_project_ids) AND assignee_id in (:team_member_ids))",team_project_ids:team.project_ids,team_member_ids:team.member_ids) }
+  scope :opened, -> { with_state(:opened) }
+  scope :closed, -> { with_state(:closed) }
   scope :merged, -> { with_state(:merged) }
-  scope :by_branch, ->(branch_name) { where("source_branch LIKE :branch OR target_branch LIKE :branch", branch: branch_name) }
+  scope :by_branch, ->(branch_name) { where("(source_branch LIKE :branch) OR (target_branch LIKE :branch)", branch: branch_name) }
   scope :cared, ->(user) { where('assignee_id = :user OR author_id = :user', user: user.id) }
   scope :by_milestone, ->(milestone) { where(milestone_id: milestone) }
-
+  scope :by_project, ->(project_id) { where("source_project_id = :project_id OR target_project_id = :project_id", project_id: project_id) }
   # Closed scope for merge request should return
   # both merged and closed mr's
   scope :closed, -> { with_states(:closed, :merged) }
 
   def validate_branches
-    if target_branch == source_branch
-      errors.add :branch_conflict, "You can not use same branch for source and target branches"
+    if target_project==source_project && target_branch == source_branch
+      errors.add :branch_conflict, "You can not use same project/branch for source and target"
     end
   end
 
@@ -135,8 +146,8 @@ class MergeRequest < ActiveRecord::Base
     # Only show what is new in the source branch compared to the target branch, not the other way around.
     # The linex below with merge_base is equivalent to diff with three dots (git diff branch1...branch2)
     # From the git documentation: "git diff A...B" is equivalent to "git diff $(git-merge-base A B) B"
-    common_commit = project.repo.git.native(:merge_base, {}, [target_branch, source_branch]).strip
-    diffs = project.repo.diff(common_commit, source_branch)
+    common_commit = target_project.repo.git.native(:merge_base, {}, [target_branch, source_branch]).strip
+    diffs = source_project.repo.diff(common_commit, source_branch)
   end
 
   def last_commit
@@ -144,11 +155,11 @@ class MergeRequest < ActiveRecord::Base
   end
 
   def merge_event
-    self.project.events.where(target_id: self.id, target_type: "MergeRequest", action: Event::MERGED).last
+    self.target_project.events.where(target_id: self.id, target_type: "MergeRequest", action: Event::MERGED).last
   end
 
   def closed_event
-    self.project.events.where(target_id: self.id, target_type: "MergeRequest", action: Event::CLOSED).last
+    self.target_project.events.where(target_id: self.id, target_type: "MergeRequest", action: Event::CLOSED).last
   end
 
   def commits
@@ -157,7 +168,7 @@ class MergeRequest < ActiveRecord::Base
 
   def probably_merged?
     unmerged_commits.empty? &&
-      commits.any? && opened?
+        commits.any? && opened?
   end
 
   def reloaded_commits
@@ -169,11 +180,27 @@ class MergeRequest < ActiveRecord::Base
   end
 
   def unmerged_commits
-    self.project.repo.
-      commits_between(self.target_branch, self.source_branch).
-      map {|c| Commit.new(c)}.
-      sort_by(&:created_at).
-      reverse
+    Gitlab::Satellite::MergeAction.new(self.author,self).commits_between.
+        map { |c| Commit.new(c) }.
+        sort_by(&:created_at).
+        reverse
+    #self.target_project.repo.
+    #    commits_between(self.target_branch, self.source_branch).
+    #    map { |c| Commit.new(c) }.
+    #    sort_by(&:created_at).
+    #    reverse
+  end
+
+  def test_post_merged_commits
+    Gitlab::Satellite::MergeAction.new(self.author,self).commits_between_post_merge.
+        map { |c| Commit.new(c) }.
+        sort_by(&:created_at).
+        reverse
+    #self.target_project.repo.
+    #    commits_between(self.target_branch, self.source_branch).
+    #    map { |c| Commit.new(c) }.
+    #    sort_by(&:created_at).
+    #    reverse
   end
 
   def merge!(user_id)
@@ -195,22 +222,28 @@ class MergeRequest < ActiveRecord::Base
     commit_ids = commits.map(&:id)
     Note.where("(noteable_type = 'MergeRequest' AND noteable_id = :mr_id) OR (noteable_type = 'Commit' AND commit_id IN (:commit_ids))", mr_id: id, commit_ids: commit_ids)
   end
-
   # Returns the raw diff for this merge request
   #
   # see "git diff"
-  def to_diff
-    project.repo.git.native(:diff, {timeout: 30, raise: true}, "#{target_branch}...#{source_branch}")
+  def to_diff(current_user)
+    #source_project.repo.git.native(:diff, {timeout: 30, raise: true}, "#{target_branch}...#{source_branch}")
+    Gitlab::Satellite::MergeAction.new(current_user, self).diff_in_satellite
   end
+
 
   # Returns the commit as a series of email patches.
   #
   # see "git format-patch"
-  def to_patch
-    project.repo.git.format_patch({timeout: 30, raise: true, stdout: true}, "#{target_branch}..#{source_branch}")
+  def to_patch(current_user)
+    Gitlab::Satellite::MergeAction.new(current_user, self).format_patch
+    #source_project.repo.git.format_patch({timeout: 30, raise: true, stdout: true}, "#{target_branch}..#{source_branch}")
   end
 
   def last_commit_short_sha
     @last_commit_short_sha ||= last_commit.sha[0..10]
+  end
+
+  def for_fork?
+    target_project != source_project
   end
 end

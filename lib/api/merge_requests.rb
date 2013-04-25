@@ -60,13 +60,13 @@ module Gitlab
       #   POST /projects/:id/merge_requests
       #
       post ":id/merge_requests" do
+        #TODO:[IA-6] this will need updating to take a source/target -- maybe to verify there is a fork first, or two apis one assuming project, one with fork in mind...
         authorize! :write_merge_request, user_project
         required_attributes! [:source_branch, :target_branch, :title]
-
         attrs = attributes_for_keys [:source_branch, :target_branch, :assignee_id, :title]
         merge_request = user_project.merge_requests.new(attrs)
         merge_request.author = current_user
-
+        merge_request.source_project = user_project
         if merge_request.save
           merge_request.reload_code
           present merge_request, with: Entities::MergeRequest

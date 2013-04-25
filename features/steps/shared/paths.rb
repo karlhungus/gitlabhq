@@ -235,12 +235,12 @@ module SharedPaths
 
   Given 'I visit merge request page "Bug NS-04"' do
     mr = MergeRequest.find_by_title("Bug NS-04")
-    visit project_merge_request_path(mr.project, mr)
+    visit project_merge_request_path(mr.target_project, mr)
   end
 
   Given 'I visit merge request page "Bug NS-05"' do
     mr = MergeRequest.find_by_title("Bug NS-05")
-    visit project_merge_request_path(mr.project, mr)
+    visit project_merge_request_path(mr.target_project, mr)
   end
 
   And 'I visit project "Shop" merge requests page' do

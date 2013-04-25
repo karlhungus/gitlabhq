@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "On a merge request", js: true do
   let!(:project) { create(:project) }
-  let!(:merge_request) { create(:merge_request, project: project) }
+  let!(:merge_request) { create(:merge_request, source_project: project, target_project: project) }
 
   before do
     login_as :user
@@ -88,8 +88,8 @@ end
 
 
 describe "On a merge request diff", js: true, focus: true do
-  let!(:project) { create(:project) }
-  let!(:merge_request) { create(:merge_request_with_diffs, project: project) }
+  let!(:project) { create(:source_project) }
+  let!(:merge_request) { create(:merge_request,:with_diffs, source_project: project,  target_project: project, ) }
 
   before do
     login_as :user

@@ -18,6 +18,6 @@ module MergeRequestsHelper
   end
 
   def ci_build_details_path merge_request
-    merge_request.project.gitlab_ci_service.build_page(merge_request.last_commit.sha)
+    merge_request.source_project.gitlab_ci_service.build_page(merge_request.last_commit.sha)
   end
 end

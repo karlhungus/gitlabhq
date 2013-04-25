@@ -132,7 +132,7 @@ class Userteams < Spinach::FeatureSteps
     team = UserTeam.last
     team.projects.each do |project|
       team.members.each do |member|
-        3.times { project.merge_requests << create(:merge_request, assignee: member) }
+        3.times { project.merge_requests << create(:merge_request, assignee: member, source_project: project, target_project: project) }
       end
     end
   end
@@ -157,7 +157,7 @@ class Userteams < Spinach::FeatureSteps
     team = UserTeam.last
     team.projects.each do |project|
       team.members.each do |member|
-        3.times { project.merge_requests << create(:merge_request, assignee: member) }
+        3.times { project.merge_requests << create(:merge_request, assignee: member, source_project: project, target_project:project) }
       end
     end
   end

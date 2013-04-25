@@ -11,7 +11,7 @@ class SearchContext
     return result unless query.present?
 
     result[:projects] = Project.where(id: project_ids).search(query).limit(10)
-    result[:merge_requests] = MergeRequest.where(project_id: project_ids).search(query).limit(10)
+    result[:merge_requests] = MergeRequest.by_project(project_ids).search(query).limit(10)
     result[:issues] = Issue.where(project_id: project_ids).search(query).limit(10)
     result[:wiki_pages] = Wiki.where(project_id: project_ids).search(query).limit(10)
     result

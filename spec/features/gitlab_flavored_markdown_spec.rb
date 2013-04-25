@@ -3,11 +3,11 @@ require 'spec_helper'
 describe "Gitlab Flavored Markdown" do
   let(:project) { create(:project) }
   let(:issue) { create(:issue, project: project) }
-  let(:merge_request) { create(:merge_request, project: project) }
+  let(:merge_request) { create(:merge_request, source_project: project, target_project: project) }
   let(:fred) do
-      u = create(:user, name: "fred")
-      project.team << [u, :master]
-      u
+    u = create(:user, name: "fred")
+    project.team << [u, :master]
+    u
   end
 
   before do
@@ -69,11 +69,11 @@ describe "Gitlab Flavored Markdown" do
 
     # @wip
     #it "should render title in refs#blame" do
-      #visit project_blame_path(project, File.join(@branch_name, @test_file))
+    #visit project_blame_path(project, File.join(@branch_name, @test_file))
 
-      #within(".blame_commit") do
-        #page.should have_link("##{issue.id}")
-      #end
+    #within(".blame_commit") do
+    #page.should have_link("##{issue.id}")
+    #end
     #end
 
     it "should render title in repositories#branches" do
@@ -119,9 +119,7 @@ describe "Gitlab Flavored Markdown" do
 
   describe "for merge requests" do
     before do
-      @merge_request = create(:merge_request,
-                              project: project,
-                              title: "fix ##{issue.id}")
+      @merge_request = create(:merge_request, source_project: project, target_project: project, title: "fix ##{issue.id}")
     end
 
     it "should render title in merge_requests#index" do

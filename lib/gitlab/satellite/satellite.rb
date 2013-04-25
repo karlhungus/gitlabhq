@@ -29,6 +29,23 @@ module Gitlab
         update_from_source!
       end
 
+      def recreate!
+        raise_no_satellite unless exists?
+        File.exists? path
+        log("PID: #{project.id}: destroy")
+        destroy
+        @repo = nil
+        log("PID: #{project.id}: create")
+        create
+        Dir.chdir(path)
+        log("PID: #{project.id}: clear working dir")
+        clear_working_dir!
+        log("PID: #{project.id}: delete heads")
+        delete_heads!
+        log("PID: #{project.id}: update from source")
+        update_from_source!
+      end
+
       def create
         output, status = popen("git clone #{project.repository.path_to_repo} #{path}",
                                Gitlab.config.satellites.path)

@@ -6,6 +6,7 @@ require "shell"
 # Stubs out all Git repository access done by models so that specs can run
 # against fake repositories without Grit complaining that they don't exist.
 class Project
+
   def repository
     if path == "empty" || !path
       nil
@@ -15,10 +16,13 @@ class Project
   end
 
   def satellite
-    FakeSatellite.new
+    FakeSatellite.new(repository)
   end
 
   class FakeSatellite
+    def initialize(repository)
+      @repo= repository.repo unless repository.nil?
+    end
     def exists?
       true
     end
@@ -27,9 +31,26 @@ class Project
       true
     end
 
+    def recreate!
+      true
+    end
+
     def create
       true
     end
+
+    def lock
+      yield
+    end
+
+    def log(string)
+      true
+    end
+
+    def repo
+      @repo
+    end
+
   end
 end
 

@@ -27,7 +27,20 @@ FactoryGirl.define do
     sequence(:name) { |n| "project#{n}" }
     path { name.downcase.gsub(/\s/, '_') }
     creator
+
+
+    trait :source do
+      sequence(:name) { |n| "source project#{n}" }
+    end
+
+    trait :target do
+      sequence(:name) { |n| "target project#{n}" }
+    end
+
+    factory :source_project, traits: [:source]
+    factory :target_project, traits: [:target]
   end
+
 
   factory :redmine_project, parent: :project do
     issues_tracker { "redmine" }
@@ -73,7 +86,8 @@ FactoryGirl.define do
   factory :merge_request do
     title
     author
-    project
+    source_project
+    target_project
     source_branch "master"
     target_branch "stable"
 
@@ -82,12 +96,12 @@ FactoryGirl.define do
       target_branch "master" # pretend bcf03b5d~3
       source_branch "stable" # pretend bcf03b5d
       st_commits do
-        [Commit.new(project.repo.commit('bcf03b5d')),
-         Commit.new(project.repo.commit('bcf03b5d~1')),
-         Commit.new(project.repo.commit('bcf03b5d~2'))]
+        [Commit.new(source_project.repo.commit('bcf03b5d')),
+         Commit.new(source_project.repo.commit('bcf03b5d~1')),
+         Commit.new(source_project.repo.commit('bcf03b5d~2'))]
       end
       st_diffs do
-        project.repo.diff("bcf03b5d~3", "bcf03b5d")
+        source_project.repo.diff("bcf03b5d~3", "bcf03b5d")
       end
     end
 

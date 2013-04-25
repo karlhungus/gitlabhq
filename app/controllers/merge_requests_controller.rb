@@ -27,8 +27,8 @@ class MergeRequestsController < ProjectResourceController
       format.html
       format.js
 
-      format.diff  { render text: @merge_request.to_diff }
-      format.patch { render text: @merge_request.to_patch }
+      format.diff  { render text: @merge_request.to_diff(current_user)}
+      format.patch { render text: @merge_request.to_patch(current_user)}
     end
   end
 
@@ -52,10 +52,12 @@ class MergeRequestsController < ProjectResourceController
   def create
     @merge_request = @project.merge_requests.new(params[:merge_request])
     @merge_request.author = current_user
+    @merge_request.source_project_id = params[:merge_request][:source_project_id].to_i
+    @merge_request.target_project_id = params[:merge_request][:target_project_id].to_i
 
     if @merge_request.save
       @merge_request.reload_code
-      redirect_to [@project, @merge_request], notice: 'Merge request was successfully created.'
+      redirect_to [@merge_request.target_project, @merge_request], notice: 'Merge request was successfully created.'
     else
       render action: "new"
     end
@@ -93,13 +95,22 @@ class MergeRequestsController < ProjectResourceController
   end
 
   def branch_from
+    #This is always source
     @commit = @repository.commit(params[:ref])
     @commit = CommitDecorator.decorate(@commit)
   end
 
   def branch_to
-    @commit = @repository.commit(params[:ref])
+    target_project = @project.id.to_s == (params[:target_project_id]) ? @project : @project.forked_project_link.forked_from_project
+    @commit = target_project.repository.commit(params[:ref])
     @commit = CommitDecorator.decorate(@commit)
+  end
+
+  def update_branches
+    #TODO:[IA-06] chance here it's neither (they've selected a blank)
+    target_project = @project.id.to_s == (params[:target_project_id]) ? @project : @project.forked_project_link.forked_from_project
+    @target_branches = (target_project.repository.heads.map(&:name)).unshift("Select branch")
+    @target_branches
   end
 
   def ci_status

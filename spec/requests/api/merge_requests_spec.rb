@@ -5,7 +5,7 @@ describe Gitlab::API do
 
   let(:user) { create(:user ) }
   let!(:project) { create(:project, namespace: user.namespace ) }
-  let!(:merge_request) { create(:merge_request, author: user, assignee: user, project: project, title: "Test") }
+  let!(:merge_request) { create(:merge_request, author: user, assignee: user, source_project: project, target_project: project, title: "Test") }
   before { project.team << [user, :reporters] }
 
   describe "GET /projects/:id/merge_requests" do

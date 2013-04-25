@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe IssueObserver do
-  let(:some_user)      { create :user }
-  let(:assignee)       { create :user }
-  let(:author)         { create :user }
-  let(:mock_issue)     { double(:issue, id: 42, assignee: assignee, author: author) }
-  let(:assigned_issue)   { create(:issue, assignee: assignee, author: author) }
+  let(:some_user) { create :user }
+  let(:assignee) { create :user }
+  let(:author) { create :user }
+  let(:mock_issue) { double(:issue, id: 42, assignee: assignee, author: author) }
+  let(:assigned_issue) { create(:issue, assignee: assignee, author: author) }
   let(:unassigned_issue) { create(:issue, author: author) }
-  let(:closed_assigned_issue)   { create(:closed_issue, assignee: assignee, author: author) }
+  let(:closed_assigned_issue) { create(:closed_issue, assignee: assignee, author: author) }
   let(:closed_unassigned_issue) { create(:closed_issue, author: author) }
 
 
@@ -42,7 +42,7 @@ describe IssueObserver do
   context '#after_close' do
     context 'a status "closed"' do
       it 'note is created if the issue is being closed' do
-        Note.should_receive(:create_status_change_note).with(assigned_issue, some_user, 'closed')
+        Note.should_receive(:create_status_change_note).with(assigned_issue, assigned_issue.project, some_user, 'closed')
 
         assigned_issue.close
       end
@@ -55,7 +55,7 @@ describe IssueObserver do
 
       it 'notification is delivered only to author if the issue being closed' do
         Notify.should_receive(:issue_status_changed_email).once
-        Note.should_receive(:create_status_change_note).with(unassigned_issue, some_user, 'closed')
+        Note.should_receive(:create_status_change_note).with(unassigned_issue, unassigned_issue.project, some_user, 'closed')
 
         unassigned_issue.close
       end
@@ -63,7 +63,7 @@ describe IssueObserver do
 
     context 'a status "reopened"' do
       it 'note is created if the issue is being reopened' do
-        Note.should_receive(:create_status_change_note).with(closed_assigned_issue, some_user, 'reopened')
+        Note.should_receive(:create_status_change_note).with(closed_assigned_issue, closed_assigned_issue.project, some_user, 'reopened')
 
         closed_assigned_issue.reopen
       end
@@ -76,7 +76,7 @@ describe IssueObserver do
 
       it 'notification is delivered only to author if the issue being reopened' do
         Notify.should_receive(:issue_status_changed_email).once
-        Note.should_receive(:create_status_change_note).with(closed_unassigned_issue, some_user, 'reopened')
+        Note.should_receive(:create_status_change_note).with(closed_unassigned_issue, closed_unassigned_issue.project, some_user, 'reopened')
 
         closed_unassigned_issue.reopen
       end

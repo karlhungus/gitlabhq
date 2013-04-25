@@ -11,7 +11,7 @@ describe ActivityObserver do
   describe "Merge Request created" do
     before do
       MergeRequest.observers.enable :activity_observer do
-        @merge_request = create(:merge_request, project: project)
+        @merge_request = create(:merge_request, source_project: project, target_project: project)
         @event = Event.last
       end
     end
