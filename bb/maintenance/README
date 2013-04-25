@@ -1,0 +1,15 @@
+This contains the scripts and files needed to put GitLab into a "maintenance mode". Before running the
+deny_gitlab_access.sh, the maintenance file must be placed in /etc/nginx/sites-available.
+
+
+
+Files in this folder:
+  maintenance               - This is to be placed in /etc/nginx/sites-available.  This will be enabled when entering
+                              maintenance mode.  Must be edited to have correct server_name.
+  deny_gitlab_access.sh     - Will cause nginx to redirect to the 503_error.html page, and deny ssh access to the git
+                              user.
+  do_full_backup.sh         - Shuts down http and ssh access to gitlab, waits 30 seconds for any pending transactions
+                              to complete, does a full backup (DB and repos) to the /gitlab/backups, then reinstates
+                              http and ssh access.
+  public/503_error.html     - Simple error page informing user that GitLab is unavailable.
+

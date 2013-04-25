@@ -1,0 +1,6 @@
+server {
+  listen   80; 
+  root /home/git/gitlab/bb/maintenance/public;
+  index 503_error.html;
+  server_name git10cnc.rim.net;
+}
