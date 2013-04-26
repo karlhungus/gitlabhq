@@ -158,7 +158,10 @@ namespace :gitlab do
           # Build a backup path
           path_to_bundle  = File.join(backup_path_repo, project.path_with_namespace + ".bundle")
 
-          if Kernel.system("git clone --bare #{path_to_bundle} #{project.repository.path_to_repo} > /dev/null 2>&1")
+          path_to_repo = File.join(repos_path, project.path_with_namespace + '.git')
+
+
+          if Kernel.system("git clone --bare #{path_to_bundle} #{path_to_repo} > /dev/null 2>&1")
             puts "[DONE]".green
           else
             puts "[FAILED]".red
