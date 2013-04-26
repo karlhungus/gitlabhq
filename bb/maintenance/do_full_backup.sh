@@ -1,4 +1,7 @@
 #!/bin/bash
+# add /usr/local/bin since that is where the ruby, gem and bundler executables are
+PATH=$PATH:/usr/local/bin
+
 APP_ROOT="/home/git/gitlab"
 
 # Turn off ssh and http access
