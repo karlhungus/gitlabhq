@@ -1,176 +1,185 @@
 
 .ui_bb {
-.projects {
+  .projects {
 
-  @extend .row;  
-   margin-left: 0px;
-   padding-top: 0px !important;
-  
-  .activities {
-    background-color: rgb(255, 255, 255);
-    /*padding: 15px;*/
-    width: 59%;
-    margin-left:30px;
-    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.14);
-
-  }
-
-  .side {
-    @extend .right;
-
-    .groups_box,
-    .projects_box {
-      > h5 { /* * * * * R I G H T S I D E B A R ( G R O U P S & P R O J E C T S ) * * * * */
-        
-        font-family: Source Sans Pro;
-        font-size: 15px;
-        font-weight: 400;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-left: 15px;
-        padding-right: 15px;
-        background-color: $blue;
-
-        line-height: 32px;
+    @extend .row;  
+     margin-left: 0px;
+     padding-top: 0px !important;
+     margin-top: 0px !important;
     
-      }
-      .nav-projects-tabs li { 
-        padding: 0; 
-      }
+    .activities {
+      background-color: rgb(255, 255, 255);
+      width: 59%;
+      margin-left:30px;
+      box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.14);
 
-      .well-list {
+    }
 
-        .arrow {
-          float: right;
-          padding: 8px 10px;
-          margin: 0;
-          font-style: italic;
-          font-size:9px;
+    .side {
+      @extend .right;
+
+      .groups_box,
+      .projects_box {
+        > h5 { /* * * * * R I G H T S I D E B A R ( G R O U P S & P R O J E C T S ) * * * * */
+          
+          font-family: $default-font-family;
+          font-size: 15px;
+          font-weight: 400;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          padding-left: 15px;
+          padding-right: 15px;
+          background-color: $blue;
+
+          line-height: 32px;
+      
+        }
+        .nav-projects-tabs li { 
+          padding: 0; 
         }
 
-        li{
-            padding:10px 15px 10px 25px;
-            min-height: 20px;
+        .well-list {
+
+          .arrow {
+            float: right;
+            padding: 8px 10px;
+            margin: 0;
+            font-style: italic;
+            font-size:9px;
           }
 
-        .last_activity {
-          padding-top: 5px;
-          display: block;
-          font-style:italic;
-          font-size: 12px;
+          li{
+              padding:10px 15px 10px 25px;
+              min-height: 20px;
+            }
 
-          span{
-            color:#666;
-            padding-left: 2px;
-          }
-          strong {
+          .last_activity {
+            padding-top: 5px;
+            display: block;
+            font-style:italic;
             font-size: 12px;
-            color: #666;
-          }          
+
+            span{
+              color:#666;
+              padding-left: 2px;
+            }
+            strong {
+              font-size: 12px;
+              color: #666;
+            }          
+          }
+        }
+        @extend .ui-box;
+      }
+    }
+  }
+
+  .new_project,
+  .edit_project {
+    .project_name_holder {
+      input,
+      label {
+        font-size: 16px;
+        line-height: 20px;
+        padding: 8px;
+      }
+      label {
+        color: #888;
+      }
+      .btn {
+        padding: 6px 10px;
+        margin-left: 10px;
+        margin-bottom: 8px;
+      }
+    }
+    .adv_settings {
+      h6 { margin-left: 40px; }
+    }
+
+    fieldset.features {
+      .control-label {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .project_clone_panel {
+    @include border-radius(4px);
+    @include bg-gray-gradient;
+    border: 1px solid #CCC;
+    margin-bottom: 20px;
+    /*padding-top: 10px;*/
+    /*padding-bottom: 10px;*/
+
+    .row{
+      margin-top: 7px !important;
+      margin-left: -10px;
+    }
+  }
+
+  .project_clone_holder {
+    input[type="text"],
+    .btn {
+      font-size: 12px;
+      line-height: 18px;
+      margin: 0;
+      padding: 3px 10px;
+      border-radius:100px;
+    }
+
+    input[type="text"] {
+      @extend .monospace;
+      border: 1px solid #BBB;
+      box-shadow: none;
+      margin-left: -1px;
+    }
+  }
+
+  .save-project-loader {
+    img {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    h3 {
+      @extend .page_title;
+    }
+
+  }
+
+  ul.nav.nav-projects-tabs {
+    @extend .nav-tabs;
+
+    padding-left: 8px;
+
+    li {
+      a {
+        padding: 4px 20px;
+        margin-top: 2px;
+        border-color: #DDD;
+        background-color: #EEE;
+        text-shadow: 0 1px 1px white;
+        color: #555;
+      }
+      &.active {
+        a {
+          font-weight:bold;
         }
       }
-      @extend .ui-box;
-    }
-  }
-}
 
-.new_project,
-.edit_project {
-  .project_name_holder {
-    input,
-    label {
-      font-size: 16px;
-      line-height: 20px;
-      padding: 8px;
-    }
-    label {
-      color: #888;
-    }
-    .btn {
-      padding: 6px 10px;
-      margin-left: 10px;
-      margin-bottom: 8px;
-    }
-  }
-  .adv_settings {
-    h6 { margin-left: 40px; }
-  }
-
-  fieldset.features {
-    .control-label {
-      font-weight: bold;
-    }
-  }
-}
-
-.project_clone_panel {
-  @include border-radius(4px);
-  @include bg-gray-gradient;
-  border: 1px solid #CCC;
-  margin-bottom: 20px;
-  /*padding-top: 10px;*/
-  /*padding-bottom: 10px;*/
-
-  .row{
-    margin-top: 7px !important;
-    margin-left: -10px;
-  }
-}
-
-.project_clone_holder {
-  input[type="text"],
-  .btn {
-    font-size: 12px;
-    line-height: 18px;
-    margin: 0;
-    padding: 3px 10px;
-    border-radius:100px;
-  }
-
-  input[type="text"] {
-    @extend .monospace;
-    border: 1px solid #BBB;
-    box-shadow: none;
-    margin-left: -1px;
-  }
-}
-
-.save-project-loader {
-  img {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  h3 {
-    @extend .page_title;
-  }
-
-}
-
-ul.nav.nav-projects-tabs {
-  @extend .nav-tabs;
-
-  padding-left: 8px;
-
-  li {
-    a {
-      padding: 4px 20px;
-      margin-top: 2px;
-      border-color: #DDD;
-      background-color: #EEE;
-      text-shadow: 0 1px 1px white;
-      color: #555;
-    }
-    &.active {
-      a {
-        font-weight:bold;
+      &.inactive{
+        background-color: none;
+        opacity: none;
       }
     }
-
-    &.inactive{
-background-color: none;
-opacity: none;
-}
   }
-}
+
+  .files{
+    .file{
+      .content{
+        margin-top: 0px;
+        min-width: 0px;
+      }
+    }
+  }
 
 }

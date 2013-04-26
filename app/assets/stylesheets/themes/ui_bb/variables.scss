@@ -16,10 +16,12 @@
 
     $page_title: rgb(35, 125, 232); /*#237DE8*/
 
-    $counter: $blue_darker/*rgba(77, 77, 77, 0.9)*/;
+    $counter: $blue_darker;
     $button_color: rgb(130,130,130);
+    $button_color_dark: rgba(63,63,63,0.9);
     $red_button: rgb(209, 47, 25);
     $button_hover: #61A1FF;
+    $button_disabled: $blue_light;
 
 
   /* F O N T */

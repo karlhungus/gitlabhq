@@ -1,37 +1,37 @@
 .ui_bb{
-	.issue_form_box {
-  @extend .main_box;
+  .issue_form_box {
+    @extend .main_box;
 
-  box-shadow: none;
-  border: none;
-  background-color: white;
+    box-shadow: none;
+    border: none;
+    background-color: white;
 
 
-  .issue_title {
-    @extend .top_box_content;
-    .clearfix {
-      margin-bottom: 0px;
-      input {
-        @extend .span8;
+    .issue_title {
+      @extend .top_box_content;
+      .clearfix {
+        margin-bottom: 0px;
+        input {
+          @extend .span8;
+        }
       }
     }
-  }
-  .issue_middle_block {
-    @extend .middle_box_content;
-    height: 30px;
-    .issue_assignee {
-      @extend .span6;
-      float: left;
+    .issue_middle_block {
+      @extend .middle_box_content;
+      height: 30px;
+      .issue_assignee {
+        @extend .span6;
+        float: left;
+      }
+      .issue_milestone {
+        @extend .span4;
+        float: left;
+      }
     }
-    .issue_milestone {
-      @extend .span4;
-      float: left;
+    .issue_description {
+      @extend .bottom_box_content;
     }
   }
-  .issue_description {
-    @extend .bottom_box_content;
-  }
-}
 
 .issues_table {
   .issue {
@@ -125,69 +125,58 @@ input.check_all_issues {
   }
 }
 
-#update_status {
-  width: 100px;
-}
-
-.span9{
-  float: right;
-  width: 72%;
-
-  #issues-table-holder.ui-box{
-    .title{
-      padding: 11px 10px 6px;  /*11px 11px 6px*/
-      /*border: $guide !important;*/
-    }
+  #update_status {
+    width: 100px;
   }
-  .team-table{
-    .ui-box{
-      .well-list{
-        li{
-          padding-left: 0px;
-          padding-top: 15px;
-          padding-bottom: 9px;
-        }
-        .row{
-          min-width: 0px;
-          margin-top: 0px;
-          margin-left: 0px;
+
+  .span9{
+    float: right;
+    width: 72%;
+
+    #issues-table-holder.ui-box{
+      .title{
+        padding: 11px 10px 6px;  /*11px 11px 6px*/
+        /*border: $guide !important;*/
+      }
+    }
+    .team-table{
+      .ui-box{
+        .well-list{
+          li{
+            padding-left: 0px;
+            padding-top: 15px;
+            padding-bottom: 9px;
+          }
+          .row{
+            min-width: 0px;
+            margin-top: 0px;
+            margin-left: 0px;
+          }
         }
       }
     }
   }
 
-}
+  .span3{
+    width: 220px;
+    padding-left:20px;
+    padding-right: 20px;
+    /*padding-top: 25px;*/
+    margin-left: 10px;
+    background-color: $gray;
+    border-right: 1px solid rgba(64, 64, 64, 0.1);
+    box-shadow: none;
+    /*margin-top: 20px;*/
 
-.span3{
-  width: 220px;
-  padding-left:20px;
-  padding-right: 20px;
-  /*padding-top: 25px;*/
-  margin-left: 10px;
-  background-color: $gray;
-  border-right: 1px solid rgba(64, 64, 64, 0.1);
-  box-shadow: none;
-  /*margin-top: 20px;*/
-
-  &.affix{
-    position: static;
+    &.affix{
+      position: static;
+    }
   }
-}
 
-/*hr{ display: none;}*/
-
-/*.right{
-color:rgb(249, 64, 63);
-}*/
-
-.row{
-  margin-left: 0px;
-  margin-top: 50px;
-  min-width: 1175px;
-  padding-bottom: 5px;
-}
-
-header{
-
-}
+  .row{
+    margin-left: 0px;
+    margin-top: 50px;
+    min-width: 1175px;
+    padding-bottom: 5px;
+  }
 }

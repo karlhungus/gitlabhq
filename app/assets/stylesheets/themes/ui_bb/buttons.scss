@@ -1,261 +1,255 @@
 .ui_bb{
+  .btn{
 
-  .btn {
-  text-shadow: none;
-  border: none;
-  background: none;
-  color: white !important;
-  /*box-shadow:  0.2px 0.5px 0.5px rgb(64, 64, 64); */
-  box-shadow: 0.3px 1px 1px rgb(135,135,135);  
-  border-radius: 100px !important;
-  /*background: none repeat scroll 0% 0% rgba(64, 64, 64, 0.5);*/
-  background: $button_color;
-  font-size: 12px;
-  font-weight: 700;
-  margin-right: 5px !important;
-  padding: 4px 12px;
-
-
-  &:hover {
-    background-color: $button_hover !important;
-    color: white;
-    box-shadow: none;
-  }
-
-  &.close_issue{
-    background: red_button;
-  }
-
-  &.btn-primary {
-    background: $button_color;
-    font-size: 11.7px !important;
-
-
-    &:hover {
-      background: $primary_color;
-      color: #fff;
-    }
-
-    &.disabled {
-      color: #fff;
-      background: #29B;
-    }
-  }
-
-  &.btn-info {
-    background: #5aB9C3;
-    border-color: $primary_color;
-    color: #fff;
-    text-shadow: 0 1px 1px #268;
-    &:hover {
-      background: $primary_color;
-      color: #fff;
-    }
-
-    &.disabled {
-      color: #fff;
-      background: #29B;
-    }
-  }
-
-  &.success {
-    @extend .btn-success;
-
-    &:hover {
-      @extend .btn-success;
-      background: #51a351;
-    }
-
-    &.disabled {
-      color: #fff;
-      background: #2b2;
-    }
-  }
-
-    &.btn-create {
-    @extend .wide;
-    @extend .success;
-
-    font-family: $default-font-family;
-    text-shadow: none !important;
+    text-shadow: none;
     border: none;
     background: none;
     color: white !important;
     box-shadow: 0.3px 1px 1px rgb(135,135,135);  
     border-radius: 100px !important;
     background: $button_color;
-    font-size: 12px !important;
+    font-size: 12px;
     font-weight: 700;
     margin-right: 5px !important;
     padding: 4px 12px;
-        margin-top: 0px;
-  }
 
-  &.btn-save {
-    /*@extend .wide;*/
-    /*@extend .btn-primary;*/
-    /*margin-top: 0px;*/
-    border-radius: 5px;
-    text-transform: capitalize;
-    padding: 6px 40px !important;
-    /*background: $blue_light !important;*/
-    /*float: right;*/
-    /*display: block;*/
-    text-shadow: none !important;
-    margin-top: 3px !important;
-    border-radius: 500px !important;
-  }
+    &:hover{
+      background-color: $button_hover !important;
+      color: white;
+      box-shadow: none;
+    }
 
-  &.btn-close,
-  &.btn-remove {
-    @extend .btn-danger;
-    border-color: #BD362F;
-    background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important;
+    &.close_issue{
+      background: $red_button;
+    }
 
-    &:hover {
+    &.btn-primary{
+      background: $button_color;
+      font-size: 11.7px !important;
+      
+      &:hover{
+        background: $primary_color;
+        color: #fff;        
+      }
+
+      &.disabled{
+      /*color: #fff;
+        background: #29B;*/
+
+        background: $button_disabled;
+        box-shadow: none;
+      }
+    }
+
+    &.btn-info{
+      background: #5aB9C3;
+      border-color: $primary_color;
       color: #fff;
-      background: $red_button !important;
+      text-shadow: 0 1px 1px #268;
+
+      &.disabled{
+        /*color: #fff;
+        background: #29B;*/
+
+        background: $button_disabled;
+        box-shadow: none;
+      }
     }
-  }
 
-  &.btn-cancel {
-    float: right;
-    background: $red_button !important;
-    margin-top: 9px;
-  }
+    &.success{
+      @extend .btn-success;
+      
+      &:hover {
+        @extend .btn-success;
+        background: #51a351;
+      }
 
-  &.wide {
+      &.disabled {
+        /*color: #fff;
+        background: #2b2;*/
 
-    &:hover{
-      background-color: $button_hover;
-      color: white;
-      box-shadow: none;
-
-      /*background: none repeat scroll 0% 0% rgb(47, 160, 187);
-      box-shadow: 0px 0px 4px rgba(47, 160, 187, 0.4);*/
+        background: $button_disabled;
+        box-shadow: none;
+      }
     }
-  }
 
-  &.small {
-    /*@extend .btn-small;*/
-  }
+    &.btn-create{
+      @extend .wide;
+      @extend .success;
 
-  &.active {
-    border-color: #aaa;
-    box-shadow: none;
-    background-color: $blue_darker;
-  }
-
-  &.btn-tiny {
-    font-size: 11px;
-    /*font-weight: 600;*/
-    /*padding: 4px 8px;*/
-    line-height: 16px;
-    margin: 2px;
-  }
-
-  &.btn-tiny.info{
-    font-size: 11px;
-    padding: 4px 10px;
-    background: rgba(77, 77, 77, 0.8);
-
-    &:hover{
-      background: $button_hover;
-      color: white;
-      box-shadow: none;
-    }
-  }
-
-  &.grouped {
-    margin-right: 7px;
-    float: left;
-    background: rgba(63,63,63,0.9);
-  }
-
-  &.padded {
-    margin-right: 3px;
-    padding: 4px 10px 4px;
-  }
-
-  &.comment-btn{
-    font-family: $default-font-family;
-    margin-top: 0px;
-    /*text-transform: capitalize;*/
-    padding: 6px 40px !important;
-    /*background: $blue_light !important;*/
-    text-shadow: none !important;
-    /*display: block;*/
-
-    &.disabled{
-      margin-top: 0px;
-      background: $blue_light !important;
+      font-family: $default-font-family;
       text-shadow: none !important;
-    }
-  }
-}
-
-  .login-box{
-    .btn{
-      &.btn-create, &.btn-primary{
-      width: 200px;
-      display: block;
-      text-transform: uppercase;
+      border: none;
       background: none;
-      border:none;
-      border-radius: 2px !important;
-      box-shadow: none;
-      text-shadow: none;
-      background-color: rgb(54, 98, 174) !important;
-      padding: 10px 70px;
-      margin-top: 0px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      margin-bottom: 24px;
-
-
-      font-size: 13px;
+      color: white !important;
+      box-shadow: 0.3px 1px 1px rgb(135,135,135);  
+      border-radius: 100px !important;
+      background: $button_color;
+      font-size: 12px !important;
       font-weight: 700;
-      font-family: $default-font-family !important;
+      margin-right: 5px !important;
+      padding: 4px 12px;
+      margin-top: 0px;
+
+      &.disabled{
+        background: $button_disabled;
+        box-shadow: none;
+      }
+    }
+
+    &.btn-save{
+      /*@extend .wide;*/
+      /*@extend .btn-primary;*/
+      /*margin-top: 0px;*/
+      border-radius: 5px;
+      text-transform: capitalize;
+      padding: 6px 40px !important;
+      background: $button_color_dark !important;
+      text-shadow: none !important;
+      margin-top: 3px !important;
+      border-radius: 500px !important;
+    }
+
+    &.btn-close,
+    &.btn-remove{
+      @extend .btn-danger;
+      border-color: #BD362F;
+      background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important;
 
       &:hover{
-        background: none repeat scroll 0% 0% rgb(37, 174, 160) !important;
-      }
+          color: #fff;
+          background: $red_button !important;
       }
     }
-  }
 
+    &.btn-cancel{
+      float: right;
+      background: $red_button !important;
+      margin-top: 9px;
+    }
 
-      .form-inline{
-        .search-holder{
-          input .btn{
-            &.btn-primary{
-              &.wide{
-                border: 10px solid;
-              }
-            }
-          }
-        }
+    &.wide{
+      &:hover{
+        background-color: $button_hover;
+        color: white;
+        box-shadow: none;
       }
 
-  .btn{
-    &.btn-primary{
-      &.wide{
-        &.commits-compare-btn{
-          margin: 0px;
-          &.disabled{
-            background: $blue_light;
-          }
+      &.commits-compare-btn{
+        margin: 0px;
+
+        &.disabled{
+          background: $button_disabled;
+          box-shadow: none;
         }
+      }
+    }
+
+    &.small{
+      /*@extend .btn-small;*/
+    }
+
+    &.active{
+      border-color: #aaa;
+      box-shadow: none;
+      background-color: $button_hover;
+    }
+
+    &.btn-tiny{
+      font-size: 11px;
+      /*font-weight: 600;*/
+      /*padding: 4px 8px;*/
+      line-height: 16px;
+      margin: 2px;      
+    }
+
+    &.btn-tiny.info{
+      font-size: 11px;
+      padding: 4px 10px;
+      background: rgba(77, 77, 77, 0.8);
+
+      &:hover{
+        background: $button_hover;
+        color: white;
+        box-shadow: none;
+      }   
+    }
+
+    &.grouped {
+      margin-right: 7px;
+      float: left;
+      background: $button_color_dark;
+    }
+
+    &.padded {
+      margin-right: 3px;
+      padding: 4px 10px 4px;
+    }
+
+    &.comment-btn{
+      font-family: $default-font-family;
+      margin-top: 0px;
+      padding: 6px 40px !important;
+      text-shadow: none !important;
+
+      &.disabled{
+        margin-top: 0px;
+        background: $button_disabled !important;
+        box-shadow: none !important;
       }
     }
 
     &.btn-small.btn-remove{
       @extend .btn-danger;
       border-color: #BD362F;
-      background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important;
-      
+      background-image: linear-gradient (to bottom, rgb(238, 95, 91), rgb(189, 54, 47)) !important; 
+
       &:hover{
         background: $red_button !important;
+      }
+    }
+  } /*.btn*/
+
+  .login-box{
+    .btn{
+      &.btn-create,
+      &.btn-primary{
+        width: 200px;
+        display: block;
+        text-transform: uppercase;
+        background: none;
+        border:none;
+        border-radius: 2px !important;
+        box-shadow: none;
+        text-shadow: none;
+        background-color: rgb(54, 98, 174) !important;
+        padding: 10px 70px;
+        margin-top: 0px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 24px;
+
+        font-size: 13px;
+        font-weight: 700;
+        font-family: $default-font-family !important;
+
+        &:hover{
+          background: none repeat scroll 0% 0% rgb(37, 174, 160) !important;
+        }
+      }
+    }
+  }
+
+  .form-inline{
+    .search-holder{
+      input.btn{
+        &.btn-primary{
+          &.wide{
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-left: 5px;
+          }
+        }
       }
     }
   }
@@ -273,7 +267,7 @@
           }
         }
       }
-    }      
+    }
   }
 
   .span3{
@@ -288,14 +282,28 @@
     }
   }
 
-  .span4.pull-right{
-    .btn-tiny.btn.btn-remove{
-      &:hover{
-        background: $red_button;
-      }
+.span4.pull-right{
+  .btn-tiny.btn.btn-remove{
+    &:hover{
+      background: $red_button;
     }
   }
 }
 
+.btn.btn-tiny.pull-right.view-file{
+  background: $button_color_dark;
+}
+
+.disabled{
+  background: $button_disabled;
+}
+
+.choose-btn.btn.btn-small.js-choose-note-attachment-button{
+  font-family: $default-font-family;
+}
+  
 
 
+
+
+}/*.ui_bb*/
