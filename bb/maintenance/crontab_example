@@ -1,5 +1,2 @@
-# Path needs to have /usr/local/bin added as that is where ruby and other tools are installed necessary for gitlab backup
-PATH=$PATH:/usr/bin:/bin:/usr/local/bin
-
 # Run the GitLab backup script at ten minutes past midnight every day
 10 0 * * * /bin/bash -l -c '/home/git/gitlab/bb/maintenance/do_full_backup.sh'
