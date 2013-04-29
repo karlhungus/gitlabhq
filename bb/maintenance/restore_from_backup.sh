@@ -17,9 +17,19 @@ $APP_ROOT/bb/maintenance/deny_gitlab_access.sh start
 echo "Waiting 30 seconds..."
 sleep 30
 
+# ensure that gitlab is not running
+/etc/init.d/gitlab stop
+
 
 cd $APP_ROOT
+# restore db and repos
 su --session-command="RAILS_ENV=production bundle exec rake gitlab:backup:restore BACKUP=$1 --silent" git
+# also need to explicitly restore the authorized_keys file.  This is fixed in v 5.1
+su --session-command="RAILS_ENV=production bundle exec rake gitlab:shell:setup --silent" git
+
+
+# restart gitlab
+/etc/init.d/gitlab start
 
 # Turn ssh and http access back on
 $APP_ROOT/bb/maintenance/deny_gitlab_access.sh stop
