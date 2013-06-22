@@ -170,6 +170,9 @@ group :development, :test do
   gem "database_cleaner"
   gem "launchy"
   gem 'factory_girl_rails'
+  gem 'spring', git: 'https://github.com/jonleighton/spring.git'
+  gem 'parallel_tests', git: 'https://github.com/grosser/parallel_tests.git'
+
 
   # Prevent occasions where minitest is not bundled in packaged versions of ruby (see #3826)
   gem 'minitest', '~> 4.7.0'

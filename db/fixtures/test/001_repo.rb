@@ -3,7 +3,7 @@ require 'fileutils'
 print "Unpacking seed repository..."
 
 SEED_REPO = 'seed_project.tar.gz'
-REPO_PATH = Rails.root.join('tmp', 'repositories')
+REPO_PATH = Rails.root.join('tmp', "repositories")
 
 # Make whatever directories we need to make
 FileUtils.mkdir_p(REPO_PATH)
@@ -22,7 +22,7 @@ end
 puts ' done.'
 print "Creating seed satellite..."
 
-SATELLITE_PATH = Rails.root.join('tmp', 'satellite')
+SATELLITE_PATH = Rails.root.join('tmp', "satellite")
 # Make directory
 FileUtils.mkdir_p(SATELLITE_PATH)
 # Clear any potential directory

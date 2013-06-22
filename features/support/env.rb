@@ -26,6 +26,20 @@ WebMock.allow_net_connect!
 #
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
+
+adjustment = ENV['TEST_ENV_NUMBER'] ? ENV['TEST_ENV_NUMBER'].to_i : 0
+port_number =44678 + adjustment
+puts "PORT NUMBER: #{port_number}"
+
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    timeout:550,
+    port: port_number
+  }
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+
+
 Spinach.hooks.on_tag("javascript") do
   ::Capybara.current_driver = ::Capybara.javascript_driver
 end

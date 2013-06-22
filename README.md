@@ -106,6 +106,8 @@ or start each component separately
 
 ### Run the tests
 
+#### In Serial:
+
 * Seed the database
 
         bundle exec rake db:setup RAILS_ENV=test
@@ -114,6 +116,43 @@ or start each component separately
 * Run all tests
 
         bundle exec rake gitlab:test
+
+#### In Parallel:
+
+* For parallel setup
+
+  * Update your database file to specify the database name for test to database: gitlabhq_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+    test: &test
+      adapter: mysql2
+      #  adapter: sqlite3
+      #  database: ":memory:"
+      #  verbosity: quiet
+      encoding: utf8
+      reconnect: false
+      database: gitlabhq_test<%= ENV['TEST_ENV_NUMBER'] %>
+      pool: 5
+      username: root
+      password:
+      #socket: /tmp/mysql.sock 
+
+  *  Setup your database:
+
+        bundle exec rake parallel:create
+        bundle exec rake parallel:prepare
+
+* Run rspec tests in parallel
+
+        bundle exec spring rake parallel:spec
+
+* Run all tests in parallel 
+
+        
+        bundle exec spring rake gitlab:parallel_test
+
+  * Several Notes
+     
+    * Parallel specs will load rails each time, so speed ups won't be seen unless using a preloader (spring)
 
 * [RSpec](http://rspec.info/) unit and functional tests
 

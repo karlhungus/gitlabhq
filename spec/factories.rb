@@ -48,14 +48,14 @@ FactoryGirl.define do
   end
 
   factory :project_with_code, parent: :project do
-    path { 'gitlabhq' }
+    path { "gitlabhq#{ENV['TEST_ENV_NUMBER']}" }
 
     trait :source_path do
-      path { 'source_gitlabhq' }
+      path { "source_gitlabhq#{ENV['TEST_ENV_NUMBER']}" }
     end
 
     trait :target_path do
-      path { 'target_gitlabhq' }
+      path { "target_gitlabhq#{ENV['TEST_ENV_NUMBER']}" }
     end
 
     factory :source_project_with_code, traits: [:source, :source_path]
