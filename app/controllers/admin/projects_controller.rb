@@ -18,6 +18,16 @@ class Admin::ProjectsController < Admin::ApplicationController
     @group = @project.group
   end
 
+  def destroy
+    return access_denied! unless can?(current_user, :remove_project, project)
+
+    project.team.truncate
+    project.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_projects_path }
+    end
+  end
+
   protected
 
   def project

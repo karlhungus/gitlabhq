@@ -87,7 +87,7 @@ Gitlab::Application.routes.draw do
 
     resource :logs, only: [:show]
     resource :background_jobs, controller: 'background_jobs', only: [:show]
-    resources :projects, constraints: { id: /[a-zA-Z.\/0-9_\-]+/ }, only: [:index, :show]
+    resources :projects, constraints: { id: /[a-zA-Z.\/0-9_\-]+/ }, only: [:index, :show, :destroy] do
     root to: "dashboard#index"
   end
 
